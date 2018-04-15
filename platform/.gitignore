@@ -3,3 +3,5 @@
 .idea/modules.xml
 .idea/workspace.xml
 .idea/uiDesigner.xml
+.gradle/
+build/

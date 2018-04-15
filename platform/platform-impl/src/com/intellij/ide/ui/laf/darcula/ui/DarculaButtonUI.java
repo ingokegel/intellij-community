@@ -2,6 +2,7 @@
 package com.intellij.ide.ui.laf.darcula.ui;
 
 import com.intellij.icons.AllIcons;
+import com.intellij.ide.ui.UISettings;
 import com.intellij.ide.ui.laf.darcula.DarculaLaf;
 import com.intellij.ide.ui.laf.darcula.DarculaUIUtil;
 import com.intellij.openapi.actionSystem.ex.ComboBoxAction;
@@ -139,7 +140,6 @@ public class DarculaButtonUI extends BasicButtonUI {
     }
   }
 
-  @Override
   protected void paintText(Graphics g, JComponent c, Rectangle textRect, String text) {
     if (UIUtil.isHelpButton(c)) {
       return;
@@ -179,6 +179,7 @@ public class DarculaButtonUI extends BasicButtonUI {
   }
 
   protected void paintContents(Graphics g, AbstractButton b) {
+    if (b instanceof JBOptionButton) return;
 
     FontMetrics fm = UIUtilities.getFontMetrics(b, g);
     boolean isDotButton = isSquare(b) && b.getIcon() == AllIcons.General.Ellipsis;
