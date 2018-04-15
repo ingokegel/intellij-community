@@ -10,4 +10,5 @@ java {
 dependencies {
     compile(project(":annotations:java5"))
     compile(project(":annotations:common"))
+    compile(kotlin("reflect"))
 }

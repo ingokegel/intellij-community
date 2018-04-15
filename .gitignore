@@ -11,6 +11,11 @@
 /out
 /python/helpers/.idea
 /system
+.idea/workspace.xml
+**/out/**
+/out
+.DS_Store
+/test-system
 /test-config
 /test-system
 build/dependencies/.gradle

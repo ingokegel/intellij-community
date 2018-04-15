@@ -2,12 +2,26 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="bootstrap_main" target="1.8" />
+      <module name="bootstrap_test" target="1.8" />
       <module name="common_main" target="1.8" />
       <module name="common_test" target="1.8" />
+      <module name="core-api_main" target="1.8" />
+      <module name="core-api_test" target="1.8" />
+      <module name="extensions_main" target="1.8" />
+      <module name="extensions_test" target="1.8" />
+      <module name="forms_rt_main" target="1.8" />
+      <module name="forms_rt_test" target="1.8" />
       <module name="java5_main" target="1.8" />
       <module name="java5_test" target="1.8" />
+      <module name="model-api_main" target="1.8" />
+      <module name="model-api_test" target="1.8" />
       <module name="platform-impl_main" target="1.8" />
       <module name="platform-impl_test" target="1.8" />
+      <module name="projectModel-api_main" target="1.8" />
+      <module name="projectModel-api_test" target="1.8" />
+      <module name="shim_main" target="1.8" />
+      <module name="shim_test" target="1.8" />
       <module name="util-rt_main" target="1.5" />
       <module name="util-rt_test" target="1.5" />
       <module name="util_main" target="1.6" />

@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    compile(project(":util"))
+    compile(project(":shim"))
 }
 
 idea {
@@ -12,6 +12,7 @@ idea {
         excludeDirs = excludeDirs +
                 file("src/com/intellij").listFiles { _, name -> name != "ide" } +
                 file("src/com/intellij/ide").listFiles { _, name -> name != "ui" } +
-                file("src/com/intellij/ide/ui").listFiles { _, name -> name != "laf" }
+                file("src/com/intellij/ide/ui").listFiles { _, name -> name != "laf" } +
+                file("src/com/intellij/ide/ui/laf/darcula/ui/DarculaOptionButtonUI.kt")
     }
 }
