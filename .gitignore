@@ -12,6 +12,7 @@ build/dependencies/build
 .idea/libraries/Gradle__*.xml
 .idea/gradle_extensions.xml
 .idea/usage.statistics.xml
+**/out/**
 edu/dependencies/build
 edu/dependencies/.gradle
 /python/helpers/.idea
