@@ -8,11 +8,19 @@
         <option name="gradleHome" value="$USER_HOME$/progs/gradle-build" />
         <option name="modules">
           <set>
+            <option value="$PROJECT_DIR$/../jps/model-api" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/annotations" />
             <option value="$PROJECT_DIR$/annotations/common" />
             <option value="$PROJECT_DIR$/annotations/java5" />
+            <option value="$PROJECT_DIR$/bootstrap" />
+            <option value="$PROJECT_DIR$/core-api" />
+            <option value="$PROJECT_DIR$/extensions" />
+            <option value="$PROJECT_DIR$/forms_rt" />
+            <option value="$PROJECT_DIR$/jps" />
             <option value="$PROJECT_DIR$/platform-impl" />
+            <option value="$PROJECT_DIR$/projectModel-api" />
+            <option value="$PROJECT_DIR$/shim" />
             <option value="$PROJECT_DIR$/util" />
             <option value="$PROJECT_DIR$/util-rt" />
           </set>
