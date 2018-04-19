@@ -9,14 +9,8 @@ fun dir(path: String, dir: String? = null) {
 }
 
 dir("shim")
-dir("bootstrap")
-dir("forms_rt")
-dir("extensions")
-dir("core-api")
-dir("projectModel-api")
 dir("platform-impl")
 dir("util-rt")
 dir("util")
 dir("annotations:java5")
 dir("annotations:common")
-dir("jps:model-api", "../jps/model-api")
