@@ -53,6 +53,21 @@ tasks {
         from(jar)
         into("$buildDir/dist")
     }
+
+
+    "processResources"(Copy::class) {
+        from("src") {
+            include("**/com/intellij/ide/ui/laf/*.properties")
+            include("**/com/intellij/ide/ui/laf/*.css")
+        }
+        from("../icons/src") {
+            include("darcula/*")
+            include("nodes/*")
+            include("general/*")
+            include("fileTypes/*")
+        }
+        includeEmptyDirs = false
+    }
 }
 
 idea {
