@@ -17,6 +17,10 @@ public class UISettings {
         return INSTANCE;
     }
 
+    public static UISettings getInstanceOrNull() {
+        return INSTANCE;
+    }
+
     public void fireUISettingsChanged() {
     }
 
@@ -30,5 +34,13 @@ public class UISettings {
 
     public int getFontSize() {
         throw new UnsupportedOperationException();
+    }
+
+    public boolean getDisableMnemonicsInControls() {
+        return true;
+    }
+
+    public boolean getSmoothScrolling() {
+        return true;
     }
 }
