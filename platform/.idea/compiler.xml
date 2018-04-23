@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="bootstrap_main" target="1.8" />
       <module name="bootstrap_test" target="1.8" />
+      <module name="buildSrc_main" target="1.8" />
+      <module name="buildSrc_test" target="1.8" />
       <module name="common_main" target="1.8" />
       <module name="common_test" target="1.8" />
       <module name="core-api_main" target="1.8" />
@@ -16,6 +18,8 @@
       <module name="java5_test" target="1.8" />
       <module name="model-api_main" target="1.8" />
       <module name="model-api_test" target="1.8" />
+      <module name="platform-api_main" target="1.8" />
+      <module name="platform-api_test" target="1.8" />
       <module name="platform-impl_main" target="1.8" />
       <module name="platform-impl_test" target="1.8" />
       <module name="projectModel-api_main" target="1.8" />

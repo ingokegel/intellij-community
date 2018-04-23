@@ -1,9 +1,19 @@
 plugins {
-    java
+    kotlin("jvm")
+    idea
 }
 
 dependencies {
-    compile(project(":extensions"))
-    compile("dk.brics:automaton:1.12-1")
-    compile(files("../../lib/cglib-nodep-3.2.4.jar"))
+    compile(project(":shim"))
+}
+
+java {
+    sourceSets {
+        "main" {
+            java {
+                include("com/intellij/openapi/project/DumbAware.java")
+                include("com/intellij/openapi/project/DumbAwareRunnable.java")
+            }
+        }
+    }
 }
