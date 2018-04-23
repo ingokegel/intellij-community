@@ -45,6 +45,7 @@ public class WideSelectionTreeUI extends BasicTreeUI {
 
   @NonNls public static final String SOURCE_LIST_CLIENT_PROPERTY = "mac.ui.source.list";
   @NonNls public static final String STRIPED_CLIENT_PROPERTY = "mac.ui.striped";
+  @NonNls public static final String WIDE_SELECTION_PROPERTY = "wideSelection";
 
   private static final Border LIST_BACKGROUND_PAINTER = UIManager.getBorder("List.sourceListBackgroundPainter");
   private static final Border LIST_SELECTION_BACKGROUND_PAINTER = UIManager.getBorder("List.sourceListSelectionBackgroundPainter");
@@ -288,7 +289,7 @@ public class WideSelectionTreeUI extends BasicTreeUI {
     final int containerWidth = tree.getParent() instanceof JViewport ? tree.getParent().getWidth() : tree.getWidth();
     final int xOffset = tree.getParent() instanceof JViewport ? ((JViewport)tree.getParent()).getViewPosition().x : 0;
 
-    if (path != null && myWideSelection) {
+    if (path != null && myWideSelection && !Boolean.FALSE.equals(tree.getClientProperty(WIDE_SELECTION_PROPERTY))) {
       boolean selected = tree.isPathSelected(path);
       Graphics2D rowGraphics = (Graphics2D)g.create();
       rowGraphics.setClip(clipBounds);
