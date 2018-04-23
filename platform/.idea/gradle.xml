@@ -12,6 +12,9 @@
             <option value="$PROJECT_DIR$/annotations" />
             <option value="$PROJECT_DIR$/annotations/common" />
             <option value="$PROJECT_DIR$/annotations/java5" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/core-api" />
+            <option value="$PROJECT_DIR$/platform-api" />
             <option value="$PROJECT_DIR$/platform-impl" />
             <option value="$PROJECT_DIR$/shim" />
             <option value="$PROJECT_DIR$/util" />
