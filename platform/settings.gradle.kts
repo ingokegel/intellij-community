@@ -9,6 +9,8 @@ fun dir(path: String, dir: String? = null) {
 }
 
 dir("shim")
+dir("core-api")
+dir("platform-api")
 dir("platform-impl")
 dir("util-rt")
 dir("util")
