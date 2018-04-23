@@ -1,5 +1,6 @@
 import org.gradle.plugins.ide.idea.model.IdeaModel
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import util.addExludesFromSourceSet
 
 plugins {
     kotlin("jvm") version "1.2.31" apply false
@@ -36,12 +37,12 @@ subprojects {
             }
         }
 
-    }
-    plugins.withType<IdeaPlugin>().whenObjectAdded {
+        pluginManager.apply("idea")
         the<IdeaModel>().apply {
             module {
                 jdkName = "1.8"
             }
+            addExludesFromSourceSet()
         }
     }
 }
