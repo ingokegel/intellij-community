@@ -145,7 +145,7 @@ public class WinIntelliJButtonUI extends DarculaButtonUI {
     ButtonModel bm = b.getModel();
 
     Color focusedColor = (Color)b.getClientProperty("JButton.focusedBackgroundColor");
-    if (bm.isPressed()) {
+    if (bm.isPressed() || bm.isSelected()) {
       return focusedColor != null ?
              focusedColor : UIManager.getColor("Button.intellij.native.pressedBackgroundColor");
     }
