@@ -151,11 +151,15 @@ public class WinIntelliJButtonUI extends DarculaButtonUI {
     }
     else if (b.hasFocus() || bm.isRollover()) {
       return focusedColor != null ?
-             focusedColor : UIManager.getColor("Button.intellij.native.focusedBackgroundColor");
-    }
-    else {
-      Color backgroundColor = (Color)b.getClientProperty("JButton.backgroundColor");
-      return backgroundColor != null ? backgroundColor : b.getBackground();
+             focusedColor :UIManager.getColor("Button.intellij.native.focusedBackgroundColor");
+    } else {
+      boolean toolbar = (b.getParent() instanceof JToolBar);
+      if (toolbar) {
+        return b.getParent().getBackground();
+      } else {
+        Color backgroundColor = (Color)b.getClientProperty("JButton.backgroundColor");
+        return backgroundColor != null ? backgroundColor : b.getBackground();
+      }
     }
   }
 }
