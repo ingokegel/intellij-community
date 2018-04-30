@@ -125,7 +125,7 @@ public class WideSelectionTreeUI extends BasicTreeUI {
    *                                is given to the condition as an argument)
    */
   public WideSelectionTreeUI(final boolean wideSelection, @NotNull Condition<? super Integer> wideSelectionCondition) {
-    myWideSelection = wideSelection;
+    myWideSelection = wideSelection && !UIManager.getBoolean("Tree.intellij.disableWideSelection");
     myWideSelectionCondition = wideSelectionCondition;
   }
 
