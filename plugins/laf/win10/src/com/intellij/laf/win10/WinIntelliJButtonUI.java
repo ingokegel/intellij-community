@@ -108,7 +108,8 @@ public class WinIntelliJButtonUI extends DarculaButtonUI {
   protected void paintDisabledText(Graphics g, String text, JComponent c, Rectangle textRect, FontMetrics metrics) {
     Graphics2D g2 = (Graphics2D)g.create();
     try {
-      g2.setColor(UIManager.getColor("Button.disabledText"));
+      Color disabledTextColor = (Color)c.getClientProperty("disabledTextColor");
+      g2.setColor(disabledTextColor != null ? disabledTextColor : UIManager.getColor("Button.disabledText"));
       UIUtilities.drawStringUnderlineCharAt(c, g2, text, -1,
                                             textRect.x + getTextShiftOffset(),
                                             textRect.y + metrics.getAscent() + getTextShiftOffset());
