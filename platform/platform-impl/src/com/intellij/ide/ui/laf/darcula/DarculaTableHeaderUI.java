@@ -24,8 +24,7 @@ public class DarculaTableHeaderUI extends BasicTableHeaderUI {
     return new DarculaTableHeaderUI();
   }
 
-  @Override
-  public void paint(Graphics g2, JComponent c) {
+  protected void paintBackground(Graphics g2, JComponent c) {
     final Graphics2D g = (Graphics2D)g2;
     final GraphicsConfig config = new GraphicsConfig(g);
     final Color bg = c.getBackground();
@@ -54,7 +53,11 @@ public class DarculaTableHeaderUI extends BasicTableHeaderUI {
     }
 
     config.restore();
+  }
 
-    super.paint(g, c);
+  @Override
+  public void paint(Graphics g2, JComponent c) {
+    paintBackground(g2, c);
+    super.paint(g2, c);
   }
 }
