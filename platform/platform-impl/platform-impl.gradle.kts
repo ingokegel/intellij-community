@@ -74,8 +74,7 @@ tasks {
             include("windows/*")
             include("general/*")
             include("fileTypes/*")
-            include("actions/startDebugger.png")
-            include("actions/right.png")
+            include("actions/*")
         }
         includeEmptyDirs = false
     }
