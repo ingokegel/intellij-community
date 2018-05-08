@@ -126,7 +126,7 @@ public class DarculaButtonUI extends BasicButtonUI {
           g2.fill(new RoundRectangle2D.Float(bw, bw + shadowWidth, r.width - bw * 2, r.height - bw * 2, arc, arc));
         }
 
-        if (c.isEnabled()) {
+        if (c.isEnabled() && !(c.getParent() instanceof JToolBar)) {
           g2.setPaint(getBackground(c, r));
           g2.fill(new RoundRectangle2D.Float(bw, bw, r.width - bw * 2, r.height - bw * 2, arc, arc));
         }
@@ -227,6 +227,9 @@ public class DarculaButtonUI extends BasicButtonUI {
   }
 
   protected Dimension getDarculaButtonSize(JComponent c, Dimension prefSize) {
+    if (c.getParent() instanceof JToolBar) {
+      return prefSize;
+    }
     Insets i = c.getInsets();
     if (UIUtil.isHelpButton(c) || isSquare(c)) {
       int helpDiam = HELP_BUTTON_DIAMETER.get();
