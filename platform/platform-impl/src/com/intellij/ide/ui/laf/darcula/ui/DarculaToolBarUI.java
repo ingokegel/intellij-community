@@ -17,6 +17,12 @@ public class DarculaToolBarUI extends BasicToolBarUI {
   }
 
   @Override
+  protected void installDefaults() {
+    setRolloverBorders(true);
+    super.installDefaults();
+  }
+
+  @Override
   protected Border createRolloverBorder() {
     return new RolloverButtonBorder();
   }
