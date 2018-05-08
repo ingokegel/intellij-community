@@ -70,9 +70,12 @@ tasks {
         from("../icons/src") {
             include("darcula/*")
             include("nodes/*")
+            include("mac/*")
+            include("windows/*")
             include("general/*")
             include("fileTypes/*")
             include("actions/startDebugger.png")
+            include("actions/right.png")
         }
         includeEmptyDirs = false
     }
