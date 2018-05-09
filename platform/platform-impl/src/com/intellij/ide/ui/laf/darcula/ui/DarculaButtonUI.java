@@ -134,12 +134,10 @@ public class DarculaButtonUI extends BasicButtonUI {
     Color backgroundColor = (Color)c.getClientProperty("JButton.backgroundColor");
 
     return backgroundColor != null ? backgroundColor :
-           isSmallComboButton(c) ? JBColor.namedColor("ComboBoxButton.background",
-                                                      JBColor.namedColor("Button.darcula.smallComboButtonBackground",
-                                                                         UIUtil.getPanelBackground())) :
-           isDefaultButton(c) ?
-           UIUtil.getGradientPaint(0, 0, getDefaultButtonColorStart(), 0, r.height, getDefaultButtonColorEnd()) :
-           UIUtil.getGradientPaint(0, 0, getButtonColorStart(), 0, r.height, getButtonColorEnd());
+      isSmallComboButton(c) ? JBColor.namedColor("ComboBoxButton.background", JBColor.namedColor("Button.darcula.smallComboButtonBackground", UIUtil.getPanelBackground())) :
+          (isDefaultButton(c) ||  (c instanceof AbstractButton && ((AbstractButton)c).isSelected())) ?
+        UIUtil.getGradientPaint(0, 0, getDefaultButtonColorStart(), 0, r.height, getDefaultButtonColorEnd()) :
+        UIUtil.getGradientPaint(0, 0, getButtonColorStart(), 0, r.height, getButtonColorEnd());
   }
 
   @Override
