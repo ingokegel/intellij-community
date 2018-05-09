@@ -266,6 +266,19 @@ public class DarculaButtonUI extends BasicButtonUI {
     }
   }
 
+  protected int getExtraVerticalInset(JComponent c) {
+    return isExceedsDefaultHeight(c) ? 8 : 0;
+  }
+
+  private boolean isExceedsDefaultHeight(JComponent c) {
+    if (c instanceof AbstractButton) {
+      Icon icon = ((AbstractButton)c).getIcon();
+      return icon != null && icon.getIconHeight() > 16;
+    } else {
+      return false;
+    }
+  }
+
   protected int getMinimumHeight() {
     return MINIMUM_HEIGHT.get();
   }
