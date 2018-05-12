@@ -68,6 +68,9 @@ public class DarculaTextFieldUI extends TextFieldWithPopupHandlerUI {
 
       g2.translate(r.x, r.y);
 
+      if (!component.isOpaque() && !component.isEnabled()) {
+        return;
+      }
       if (component.isEnabled() && component.isEditable()) {
         float arc = isSearchField(component) ? COMPONENT_ARC.getFloat() : 0.0f;
         float bw = bw();
