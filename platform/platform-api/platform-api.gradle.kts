@@ -13,6 +13,7 @@ java {
             java {
                 include("com/intellij/openapi/ui/Painter.java")
                 include("com/intellij/ui/components/JBScrollBar.java")
+                include("com/intellij/ui/components/MacScrollBarUI.java")
                 include("com/intellij/ui/IdeBorderFactory.java")
                 include("com/intellij/ui/RoundedLineBorder.java")
                 include("com/intellij/ui/components/JBScrollPane.java")
