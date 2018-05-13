@@ -109,8 +109,9 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
 
     if (!b.isEnabled()) {
       return Gray.xF1;
-    }
-    else if (DarculaButtonUI.isDefaultButton(b)) {
+    } else if ((b instanceof AbstractButton && ((AbstractButton)b).isSelected())) {
+      return Gray.xF1;
+    } else if (DarculaButtonUI.isDefaultButton(b)) {
       return UIUtil.isGraphite() ?
              new GradientPaint(0, i.top, new Color(0xb2b2b7), 0, h - (i.top + i.bottom), new Color(0x929297)) :
              new GradientPaint(0, i.top, new Color(0x68b2fa), 0, b.getHeight() - (i.top + i.bottom), new Color(0x0e80ff));
