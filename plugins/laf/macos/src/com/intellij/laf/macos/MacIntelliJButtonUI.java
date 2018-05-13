@@ -7,12 +7,14 @@ import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.MacUIUtil;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.util.ui.UIUtilities;
+import com.intellij.util.IconUtil;
 
 import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 import java.awt.*;
 import java.awt.geom.Path2D;
 import java.awt.geom.RoundRectangle2D;
+import java.util.Objects;
 
 import static com.intellij.laf.macos.MacIntelliJTextBorder.*;
 
@@ -52,7 +54,7 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
         float arc = ARC.getFloat();
         Insets i = DarculaButtonUI.isSmallVariant(c) ? JBUI.insets(1) : c.getInsets();
 
-        if (b.isContentAreaFilled()) {
+        if (b.isContentAreaFilled() && !isToolbarButton(c)) {
           // Draw background
           Shape outerRect = new RoundRectangle2D.Float(i.left, i.top, w - (i.left + i.right), h - (i.top + i.bottom), arc, arc);
           g2.setPaint(getBackgroundPaint(c));
@@ -75,6 +77,29 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
         g2.dispose();
       }
     }
+  }
+
+  private boolean isToolbarButton(JComponent c) {
+    return Objects.equals(c.getClientProperty("JButton.buttonType"), "toolbar");
+  }
+
+  @Override
+  protected void paintIcon(Graphics g, JComponent c, Rectangle iconRect) {
+    if (isToolbarButton(c) && c instanceof AbstractButton && c.isEnabled()) {
+      AbstractButton button = (AbstractButton)c;
+      Icon icon = button.getIcon();
+      ButtonModel model = button.getModel();
+      if (icon != null && model.isPressed() && model.isArmed()) {
+        Icon darkerIcon = IconUtil.darker(icon, 2);
+        darkerIcon.paintIcon(c, g, iconRect.x, iconRect.y);
+        return;
+      }
+    }
+    super.paintIcon(g, c, iconRect);
+  }
+
+  public static float getLineWidth(Graphics2D g) {
+    return UIUtil.isRetina(g) ? 0.5f : 1.0f;
   }
 
   @SuppressWarnings("UseJBColor")
