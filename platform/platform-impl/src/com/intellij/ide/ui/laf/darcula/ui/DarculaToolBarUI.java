@@ -1,5 +1,6 @@
 package com.intellij.ide.ui.laf.darcula.ui;
 
+import com.intellij.openapi.util.SystemInfo;
 import com.intellij.util.ui.JBUI;
 
 import javax.swing.*;
@@ -24,7 +25,7 @@ public class DarculaToolBarUI extends BasicToolBarUI {
 
   @Override
   protected Border createRolloverBorder() {
-    return new RolloverButtonBorder();
+    return SystemInfo.isMac ? new NonRolloverButtonBorder() : new RolloverButtonBorder();
   }
 
   public static class RolloverButtonBorder extends AbstractBorder implements UIResource {
@@ -52,6 +53,13 @@ public class DarculaToolBarUI extends BasicToolBarUI {
       }
     }
 
+    @Override
+    public Insets getBorderInsets(Component c) {
+      return JBUI.insets(4);
+    }
+  }
+
+  public static class NonRolloverButtonBorder extends AbstractBorder implements UIResource {
     @Override
     public Insets getBorderInsets(Component c) {
       return JBUI.insets(4);
