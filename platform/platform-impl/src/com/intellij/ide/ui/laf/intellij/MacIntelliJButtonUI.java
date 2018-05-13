@@ -26,7 +26,7 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
 
   @Override
   public void paint(Graphics g, JComponent c) {
-    if (!(c.getBorder() instanceof MacIntelliJButtonBorder)) {
+    if (!(c.getBorder() instanceof MacIntelliJButtonBorder) && !(c.getParent() instanceof JToolBar)) {
       super.paint(g, c);
       return;
     }
@@ -51,12 +51,16 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
         float arc = ARC.getFloat();
         Insets i = isSmallComboButton(c) ? JBUI.insets(1) : c.getInsets();
 
-        if (!isToolbarButton(c)) {
+        Shape outerRect = new RoundRectangle2D.Float(i.left, i.top, w - (i.left + i.right), h - (i.top + i.bottom), arc, arc);
+
+        boolean toolbarButton = isToolbarButton(c);
+        if (!toolbarButton || (c instanceof AbstractButton && ((AbstractButton)c).isSelected())) {
           // Draw background
-          Shape outerRect = new RoundRectangle2D.Float(i.left, i.top, w - (i.left + i.right), h - (i.top + i.bottom), arc, arc);
           g2.setPaint(getBackgroundPaint(c));
           g2.fill(outerRect);
+        }
 
+        if (!toolbarButton) {
           // Draw  outline
           Path2D outline = new Path2D.Float(Path2D.WIND_EVEN_ODD);
           outline.append(outerRect, false);
@@ -77,12 +81,12 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
   }
 
   private boolean isToolbarButton(JComponent c) {
-    return Objects.equals(c.getClientProperty("JButton.buttonType"), "toolbar");
+    return Objects.equals(c.getClientProperty("JButton.buttonType"), "toolbar") || c.getParent() instanceof JToolBar;
   }
 
   @Override
   protected void paintIcon(Graphics g, JComponent c, Rectangle iconRect) {
-    if (isToolbarButton(c) && c instanceof AbstractButton && c.isEnabled()) {
+    if (isToolbarButton(c) && c instanceof JButton && c.isEnabled()) {
       AbstractButton button = (AbstractButton)c;
       Icon icon = button.getIcon();
       ButtonModel model = button.getModel();
@@ -107,7 +111,7 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
     if (!b.isEnabled()) {
       return Gray.xF1;
     } else if ((b instanceof AbstractButton && ((AbstractButton)b).isSelected())) {
-      return Gray.xF1;
+      return new Color(0xcce6ff);
     } else if (isDefaultButton(b)) {
       return UIUtil.isGraphite() ?
              new GradientPaint(0, i.top, new Color(0xb2b2b7), 0, h - (i.top + i.bottom), new Color(0x929297)) :
@@ -140,7 +144,7 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
 
   @Override
   protected Dimension getDarculaButtonSize(JComponent c, Dimension prefSize) {
-    if (c.getParent() instanceof JToolBar) {
+    if (isToolbarButton(c)) {
       return prefSize;
     }
     if (UIUtil.isHelpButton(c)) {
