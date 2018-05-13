@@ -166,10 +166,10 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
     int x = textRect.x + getTextShiftOffset();
     int y = textRect.y + metrics.getAscent() + getTextShiftOffset();
     if (isDefaultButton(c)) {
-      g.setColor(Gray.xCC);
-    }
-    else {
-      g.setColor(UIManager.getColor("Button.disabledText"));
+     g.setColor(Gray.xCC);
+    } else {
+      Color disabledTextColor = (Color)c.getClientProperty("disabledTextColor");
+      g.setColor(disabledTextColor != null ? disabledTextColor : UIManager.getColor("Button.disabledText"));
     }
     UIUtilities.drawStringUnderlineCharAt(c, g, text, -1, x, y);
   }
