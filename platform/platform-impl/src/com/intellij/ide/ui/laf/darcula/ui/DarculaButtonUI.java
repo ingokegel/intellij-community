@@ -135,7 +135,7 @@ public class DarculaButtonUI extends BasicButtonUI {
           g2.fill(new RoundRectangle2D.Float(bw, bw + shadowWidth, r.width - bw * 2, r.height - bw * 2, arc, arc));
         }
 
-        if (c.isEnabled() && !(c.getParent() instanceof JToolBar)) {
+        if (c.isEnabled() && (!(c.getParent() instanceof JToolBar) || (c instanceof AbstractButton && ((AbstractButton)c).isSelected()))) {
           g2.setPaint(getBackground(c, r));
           g2.fill(new RoundRectangle2D.Float(bw, bw, r.width - bw * 2, r.height - bw * 2, arc, arc));
         }
