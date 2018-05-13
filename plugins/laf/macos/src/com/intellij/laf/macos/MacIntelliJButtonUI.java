@@ -143,6 +143,9 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
 
   @Override
   protected Dimension getDarculaButtonSize(JComponent c, Dimension prefSize) {
+    if (c.getParent() instanceof JToolBar) {
+      return prefSize;
+    }
     if (UIUtil.isHelpButton(c)) {
       Icon icon = MacIconLookup.getIcon("help");
       return new Dimension(icon.getIconWidth(), icon.getIconHeight());
