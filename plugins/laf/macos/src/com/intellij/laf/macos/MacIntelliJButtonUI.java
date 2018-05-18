@@ -83,10 +83,6 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
     }
   }
 
-  private boolean isToolbarButton(JComponent c) {
-    return Objects.equals(c.getClientProperty("JButton.buttonType"), "toolbar") || c.getParent() instanceof JToolBar;
-  }
-
   @Override
   protected void paintIcon(Graphics g, JComponent c, Rectangle iconRect) {
     if (isToolbarButton(c) && c instanceof JButton && c.isEnabled()) {
