@@ -24,6 +24,7 @@ import javax.swing.text.View;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.RoundRectangle2D;
+import java.util.Objects;
 
 import static com.intellij.ide.ui.laf.darcula.DarculaUIUtil.BW;
 import static com.intellij.ide.ui.laf.darcula.DarculaUIUtil.MINIMUM_HEIGHT;
@@ -225,7 +226,7 @@ public class DarculaButtonUI extends BasicButtonUI {
   }
 
   protected Dimension getDarculaButtonSize(JComponent c, Dimension prefSize) {
-    if (c.getParent() instanceof JToolBar) {
+    if (isToolbarButton(c)) {
       return prefSize;
     }
     Insets i = c.getInsets();
@@ -261,6 +262,10 @@ public class DarculaButtonUI extends BasicButtonUI {
 
   protected int getMinimumHeight() {
     return MINIMUM_HEIGHT.get();
+  }
+
+  protected boolean isToolbarButton(JComponent c) {
+    return Objects.equals(c.getClientProperty("JButton.buttonType"), "toolbar") || c.getParent() instanceof JToolBar;
   }
 
   @Override
