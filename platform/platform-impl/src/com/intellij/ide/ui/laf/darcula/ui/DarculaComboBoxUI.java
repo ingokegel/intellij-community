@@ -236,7 +236,7 @@ public class DarculaComboBoxUI extends BasicComboBoxUI implements Border, ErrorB
   public void paint(Graphics g, JComponent c) {
     Container parent = c.getParent();
     if (parent != null) {
-      g.setColor(DarculaUIUtil.isTableCellEditor(c) && editor != null ? editor.getBackground() : parent.getBackground());
+      g.setColor(DarculaUIUtil.isTableCellEditor(c) && editor != null ? editor.getBackground() : DarculaUIUtil.getNonOpaqueAncestorBackground(c));
       g.fillRect(0, 0, c.getWidth(), c.getHeight());
     }
 

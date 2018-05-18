@@ -294,7 +294,7 @@ public class DarculaButtonUI extends BasicButtonUI {
   @Override
   public void update(Graphics g, JComponent c) {
     setupDefaultButton(c, g);
-    super.update(g, c);
+    DarculaUIUtil.paintWithNonOpaqueAncestorBackground(g, c, this);
   }
 
   protected void setupDefaultButton(JComponent button, Graphics g) {
