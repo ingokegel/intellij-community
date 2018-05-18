@@ -17,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.UIResource;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.Position;
@@ -72,6 +73,24 @@ public class DarculaUIUtil {
     };
 
     abstract public void setGraphicsColor(Graphics2D g, boolean focused);
+  }
+
+  public static void paintWithNonOpaqueAncestorBackground(Graphics g, JComponent c, ComponentUI ui) {
+    if (c.isOpaque()) {
+        g.setColor(getNonOpaqueAncestorBackground(c));
+        g.fillRect(0, 0, c.getWidth(),c.getHeight());
+    }
+    ui.paint(g, c);
+  }
+
+  public static Color getNonOpaqueAncestorBackground(JComponent c) {
+    Container parent = c;
+    while ((parent = parent.getParent()) != null) {
+      if (parent.isOpaque() && parent.getBackground() != null) {
+        return parent.getBackground();
+      }
+    }
+    return c.getBackground();
   }
 
   /**
