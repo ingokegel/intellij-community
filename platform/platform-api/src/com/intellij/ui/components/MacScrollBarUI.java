@@ -176,6 +176,9 @@ final class MacScrollBarUI extends DefaultScrollBarUI {
 
   private void updateStyle(Style style) {
     if (myScrollBar != null) {
+      if (!(myScrollBar instanceof JBScrollBar)) {
+        style = Style.Legacy;
+      }
       myScrollBar.setOpaque(style != Style.Overlay);
       myScrollBar.revalidate();
       myScrollBar.repaint();
