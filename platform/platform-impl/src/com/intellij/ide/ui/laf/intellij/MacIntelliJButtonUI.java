@@ -19,6 +19,9 @@ import static com.intellij.ide.ui.laf.intellij.MacIntelliJTextBorder.*;
  * @author Konstantin Bulenkov
  */
 public class MacIntelliJButtonUI extends DarculaButtonUI {
+
+  static final float DISABLED_ALPHA_LEVEL = 0.47f;
+
   @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass", "UnusedDeclaration"})
   public static ComponentUI createUI(JComponent c) {
     return new MacIntelliJButtonUI();
@@ -53,6 +56,10 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
 
         boolean toolbarButton = isToolbarButton(c);
         if (!toolbarButton || (c instanceof AbstractButton && ((AbstractButton)c).isSelected())) {
+          if (!b.isEnabled() && Objects.equals(c.getClientProperty("JButton.intellij.shadeDisabled"), Boolean.TRUE)) {
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, DISABLED_ALPHA_LEVEL));
+          }
+
           // Draw background
           g2.setPaint(getBackgroundPaint(c));
           g2.fill(outerRect);
