@@ -82,7 +82,9 @@ public final class DarculaUIUtil {
   public static Color getNonOpaqueAncestorBackground(JComponent c) {
     Container parent = c;
     while ((parent = parent.getParent()) != null) {
-      if (parent.isOpaque() && parent.getBackground() != null) {
+      if (parent instanceof JTabbedPane) {
+        return UIManager.getColor("TabbedPane.contentAreaColor");
+      } else if (parent.isOpaque() && parent.getBackground() != null) {
         return parent.getBackground();
       }
     }
