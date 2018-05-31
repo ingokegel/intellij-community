@@ -410,7 +410,7 @@ public class WideSelectionTreeUI extends BasicTreeUI {
                                     boolean isExpanded,
                                     boolean hasBeenExpanded,
                                     boolean isLeaf) {
-    boolean isPathSelected = tree.getSelectionModel().isPathSelected(path);
+    boolean isPathSelected = tree.getSelectionModel().isPathSelected(path) && myWideSelection;
     if (!isLeaf(row)) {
       setExpandedIcon(UIUtil.getTreeNodeIcon(true, isPathSelected, tree.hasFocus()));
       setCollapsedIcon(UIUtil.getTreeNodeIcon(false, isPathSelected, tree.hasFocus()));
