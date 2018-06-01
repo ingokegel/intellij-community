@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     compile(project(":core-api"))
+    compile("com.fasterxml.jackson.core:jackson-databind:2.9.5")
 }
 
 java {
@@ -32,13 +33,15 @@ java {
                 include("com/intellij/util/ui/ButtonlessScrollBarUI.java")
                 include("com/intellij/util/ui/Animator.java")
                 include("com/intellij/util/ui/NSScrollerHelper.java")
-                include("com/intellij/util/ui/IconCache.kt")
+                include("com/intellij/util/ui/LafIconLookup.kt")
                 include("com/intellij/openapi/wm/IdeGlassPane.java")
                 include("com/intellij/openapi/application/ApplicationActivationListener.java")
                 include("com/intellij/util/concurrency/QueueProcessor.java")
                 include("com/intellij/util/ui/update/UiNotifyConnector.java")
                 include("com/intellij/util/ui/update/Activatable.java")
                 include("com/intellij/ui/ScreenUtil.java")
+                include("com/intellij/ide/ui/UITheme.java")
+                include("com/intellij/ide/ui/UIThemeProvider.java")
             }
         }
     }

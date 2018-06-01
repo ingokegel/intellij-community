@@ -5,7 +5,7 @@ import java.util.List;
 
 import static com.intellij.util.ui.JBUI.scale;
 
-public class ExtendableTextField extends JTextField {
+public class ExtendableTextComponent extends JTextField {
     public static final String VARIANT = "extendable";
 
     public List<Extension> getExtensions() {
