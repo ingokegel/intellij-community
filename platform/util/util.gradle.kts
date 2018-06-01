@@ -12,7 +12,7 @@ dependencies {
     compile("org.apache.xmlgraphics:batik-all:1.9.1")
     compile("oro:oro:2.0.8")
     compile("org.imgscalr:imgscalr-lib:4.2")
-    compile(files("../../lib/jdom.jar"))
+    compile("org.jetbrains.intellij.deps:jdom:2.0.6")
     compile(files("../../lib/eawtstub.jar"))
     compile(files("../../lib/snappy-in-java-0.5.1.jar"))
     compile(kotlin("stdlib"))

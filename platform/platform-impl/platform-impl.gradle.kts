@@ -75,6 +75,8 @@ tasks {
             include("general/*")
             include("fileTypes/*")
             include("actions/*")
+            include("welcome/*")
+            include("toolbarDecorator/*")
         }
         includeEmptyDirs = false
     }
