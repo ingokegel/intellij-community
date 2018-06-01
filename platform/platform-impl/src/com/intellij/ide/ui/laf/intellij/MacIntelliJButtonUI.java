@@ -152,7 +152,7 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
       return new Dimension(getComboAction(c) != null ?
                            prefSize.width:
                            Math.max(HORIZONTAL_PADDING.get() * 2 + prefSize.width, MINIMUM_BUTTON_WIDTH.get() + i.left + i.right),
-                           Math.max(prefSize.height, getMinimumHeight() + i.top + i.bottom));
+                           Math.max(prefSize.height, getMinimumHeight() + i.top + i.bottom) + getExtraVerticalInset(c));
     }
   }
 
