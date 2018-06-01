@@ -271,7 +271,7 @@ public class DarculaButtonUI extends BasicButtonUI {
       int width = isComboAction(c) ? prefSize.width :
                   Math.max(HORIZONTAL_PADDING.get() * 2 + prefSize.width, MINIMUM_BUTTON_WIDTH.get() + i.left + i.right);
       int height = Math.max(prefSize.height,
-                            (isSmallVariant(c) ? ActionToolbar.DEFAULT_MINIMUM_BUTTON_SIZE.height : getMinimumHeight()) + i.top + i.bottom);
+                            (isSmallVariant(c) ? ActionToolbar.DEFAULT_MINIMUM_BUTTON_SIZE.height : getMinimumHeight()) + i.top + i.bottom) + getExtraVerticalInset(c);
 
       return new Dimension(width, height);
     }

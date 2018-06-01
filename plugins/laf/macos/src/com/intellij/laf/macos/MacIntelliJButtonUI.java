@@ -158,6 +158,7 @@ public class MacIntelliJButtonUI extends DarculaButtonUI {
       return new Dimension(icon.getIconWidth(), icon.getIconHeight());
     }
     else {
+      prefSize.height += getExtraVerticalInset(c);
       return super.getDarculaButtonSize(c, prefSize);
     }
   }
