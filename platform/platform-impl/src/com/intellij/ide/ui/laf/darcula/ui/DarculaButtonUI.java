@@ -106,14 +106,14 @@ public class DarculaButtonUI extends BasicButtonUI {
         float arc = DarculaUIUtil.BUTTON_ARC.getFloat();
         float bw = isSmallComboButton(c) ? 0 : BW.getFloat();
 
-        if (!c.hasFocus() && !isSmallComboButton(c) && c.isEnabled() && UIManager.getBoolean("Button.darcula.paintShadow")) {
+        if (!c.hasFocus() && !isSmallComboButton(c) && c.isEnabled() && UIManager.getBoolean("Button.darcula.paintShadow") && !isToolbarButton(c)) {
           Color shadowColor = JBColor.namedColor("Button.darcula.shadowColor", new Color(0xa6a6a680, true));
           int shadowWidth = JBUI.scale(JBUI.getInt("Button.darcula.shadowWidth", 2));
           g2.setColor(isDefaultButton(c) ? JBColor.namedColor("Button.darcula.defaultShadowColor", shadowColor) : shadowColor);
           g2.fill(new RoundRectangle2D.Float(bw, bw + shadowWidth, r.width - bw * 2, r.height - bw * 2, arc, arc));
         }
 
-        if (c.isEnabled() && (!(c.getParent() instanceof JToolBar) || (c instanceof AbstractButton && ((AbstractButton)c).isSelected()))) {
+        if (c.isEnabled() && (!isToolbarButton(c) || (c instanceof AbstractButton && ((AbstractButton)c).isSelected()))) {
           g2.setPaint(getBackground(c, r));
           g2.fill(new RoundRectangle2D.Float(bw, bw, r.width - bw * 2, r.height - bw * 2, arc, arc));
         }
