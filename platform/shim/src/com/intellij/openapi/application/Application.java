@@ -1,5 +1,6 @@
 package com.intellij.openapi.application;
 
+import com.intellij.ide.ui.LafManager;
 import com.intellij.openapi.components.ComponentManager;
 import com.intellij.util.messages.MessageBus;
 import org.jetbrains.annotations.NotNull;
@@ -7,9 +8,20 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 
 public class Application implements ComponentManager {
+
+    private static LafManager lafManager;
+
+    public static void setLafManager(LafManager lafManager) {
+        Application.lafManager = lafManager;
+    }
+
     @Override
     public <T> T getComponent(@NotNull Class<T> interfaceClass) {
-        return null;
+        if (interfaceClass == LafManager.class) {
+            return interfaceClass.cast(lafManager);
+        } else {
+            return null;
+        }
     }
 
     @Override
