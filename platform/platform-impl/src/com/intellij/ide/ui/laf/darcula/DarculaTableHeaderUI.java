@@ -31,8 +31,8 @@ public class DarculaTableHeaderUI extends BasicTableHeaderUI {
     final Color bg = c.getBackground();
     g.setPaint(bg);
     final int h = c.getHeight();
-    final int w = c.getWidth();
-    g.fillRect(0, 0, w, h);
+    final int w = header.getTable().getWidth(); // the width of the table header is too large when the sum of the preferred sizes of all columns exceeds the width of the table and auto-resize is enabled
+    g.fillRect(0,0, w, h);
     JBColor bottomSeparatorColor = JBColor.namedColor("TableHeader.bottomSeparatorColor", ColorUtil.shift(bg, 0.75));
     g.setPaint(bottomSeparatorColor);
     UIUtil.drawLine(g, 0, h - 1, w, h - 1);
