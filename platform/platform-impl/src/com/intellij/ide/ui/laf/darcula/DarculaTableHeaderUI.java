@@ -30,7 +30,7 @@ public class DarculaTableHeaderUI extends BasicTableHeaderUI {
     final Color bg = c.getBackground();
     g.setPaint(UIManager.getBoolean("TableHeader.intellij.noGradientPaint") ? bg : new GradientPaint(0, 0, ColorUtil.shift(bg, 1.4), 0, c.getHeight(), ColorUtil.shift(bg, 0.9)));
     final int h = c.getHeight();
-    final int w = c.getWidth();
+    final int w = header.getTable().getWidth(); // the width of the table header is too large when the sum of the preferred sizes of all columns exceeds the width of the table and auto-resize is enabled
     g.fillRect(0,0, w, h);
     g.setPaint(ColorUtil.shift(bg, 0.75));
     UIUtil.drawLine(g, 0, h - 1, w, h - 1);
