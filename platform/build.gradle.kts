@@ -8,6 +8,13 @@ plugins {
 
 val rootBuildDir = mkdir("build")
 
+tasks {
+    getByName<Wrapper>("wrapper") {
+        gradleVersion = "4.10.1"
+        distributionType = Wrapper.DistributionType.ALL
+    }
+}
+
 subprojects {
     buildDir = File(rootBuildDir, path.substring(1).replace(":", "/"))
     repositories {
@@ -15,7 +22,7 @@ subprojects {
         maven("https://jetbrains.bintray.com/intellij-third-party-dependencies")
     }
     plugins.withType<JavaPlugin>().whenObjectAdded {
-        the<JavaPluginConvention>().apply {
+        configure<JavaPluginConvention> {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
             sourceSets {
@@ -38,7 +45,7 @@ subprojects {
         }
 
         pluginManager.apply("idea")
-        the<IdeaModel>().apply {
+        configure<IdeaModel> {
             module {
                 jdkName = "1.8"
             }
