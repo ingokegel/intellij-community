@@ -93,7 +93,9 @@ public class WinIntelliJButtonUI extends DarculaButtonUI {
   @Override
   protected void modifyViewRect(AbstractButton b, Rectangle rect) {
     super.modifyViewRect(b, rect);
-    rect.y -= JBUIScale.scale(1); // Move one pixel up
+    if (!isSquare(b)) {
+        rect.y -= JBUIScale.scale(1); // Move one pixel up
+    }
   }
 
   @Override
