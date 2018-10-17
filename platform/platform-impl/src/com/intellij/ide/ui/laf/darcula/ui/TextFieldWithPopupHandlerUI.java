@@ -122,6 +122,11 @@ public abstract class TextFieldWithPopupHandlerUI extends BasicTextFieldUI imple
     Insets margin = UIUtil.getParentOfType(JComboBox.class, c) != null || UIUtil.getParentOfType(JSpinner.class, c) != null ?
                     JBUI.emptyInsets() : getDefaultMargins();
 
+    Object clientMargin = getComponent().getClientProperty("TextField.intellij.margin");
+    if (clientMargin instanceof Insets) {
+      margin = (Insets)clientMargin;
+    }
+
     JBInsets.removeFrom(bounds, c.getInsets());
     JBInsets.removeFrom(bounds, margin);
 
