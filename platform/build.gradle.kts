@@ -3,14 +3,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import util.addExludesFromSourceSet
 
 plugins {
-    kotlin("jvm") version "1.2.31" apply false
+    kotlin("jvm") version "1.3.0" apply false
 }
 
 val rootBuildDir = mkdir("build")
 
 tasks {
     getByName<Wrapper>("wrapper") {
-        gradleVersion = "4.10.1"
+        gradleVersion = "5.0"
         distributionType = Wrapper.DistributionType.ALL
     }
 }
@@ -21,7 +21,7 @@ subprojects {
         mavenCentral()
         maven("https://jetbrains.bintray.com/intellij-third-party-dependencies")
     }
-    plugins.withType<JavaPlugin>().whenObjectAdded {
+    pluginManager.withPlugin("java") {
         configure<JavaPluginConvention> {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
@@ -34,11 +34,11 @@ subprojects {
             }
         }
 
-        tasks.withType<JavaCompile> {
+        tasks.withType<JavaCompile>().configureEach {
             options.encoding = "UTF-8"
         }
 
-        tasks.withType<KotlinCompile>().all {
+        tasks.withType<KotlinCompile>().configureEach {
             kotlinOptions {
                 jvmTarget = "1.8"
             }
