@@ -7,7 +7,10 @@ dependencies {
     compile(project(":shim"))
 }
 
-sourceSets["main"].java {
-    include("com/intellij/openapi/project/DumbAware.java")
-    include("com/intellij/openapi/project/DumbAwareRunnable.java")
+sourceSets.main {
+    java {
+        include("com/intellij/openapi/project/DumbAware.java")
+        include("com/intellij/openapi/project/DumbAwareRunnable.java")
+        include("com/intellij/util/concurrency/**")
+    }
 }

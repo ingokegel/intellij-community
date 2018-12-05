@@ -7,7 +7,6 @@ import org.gradle.kotlin.dsl.the
 import org.gradle.plugins.ide.idea.model.IdeaModel
 import java.io.File
 
-@Suppress("unused")
 fun IdeaModel.addExludesFromSourceSet() {
     apply {
         module {
@@ -58,7 +57,6 @@ private fun MutableSet<File>.addExcludes(node: FileTreeNode, prefix: String, pro
 }
 
 private class FileTreeNode(val name: String, val children: MutableMap<String, FileTreeNode> = mutableMapOf()) {
-    @Suppress("Unused", "MemberVisibilityCanBePrivate")
     fun print(indent: Int = 0) {
         print("  ".repeat(indent))
         println(this)
