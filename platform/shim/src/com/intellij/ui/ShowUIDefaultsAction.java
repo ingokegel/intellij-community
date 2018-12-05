@@ -8,4 +8,9 @@ public class ShowUIDefaultsAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
 
     }
+
+    public void perform(Object o) {
+
+
+    }
 }

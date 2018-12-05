@@ -60,4 +60,8 @@ public class Application implements ComponentManager {
     public boolean isDispatchThread() {
         return EventQueue.isDispatchThread();
     }
+
+    public ModalityState getAnyModalityState() {
+        return getDefaultModalityState();
+    }
 }

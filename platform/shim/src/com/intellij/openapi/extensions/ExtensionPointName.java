@@ -1,11 +1,21 @@
 package com.intellij.openapi.extensions;
 
-public class ExtensionPointName<R> {
-  public static <R> ExtensionPointName<R> create(String s) {
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Collections;
+import java.util.List;
+
+public class ExtensionPointName<T> {
+  public static <T> ExtensionPointName<T> create(String s) {
     return new ExtensionPointName<>();
   }
 
-  public R[] getExtensions() {
-    return (R[])new Object[0];
+  public T[] getExtensions() {
+    return (T[])new Object[0];
+  }
+
+  @NotNull
+  public List<T> getExtensionList() {
+    return Collections.emptyList();
   }
 }
