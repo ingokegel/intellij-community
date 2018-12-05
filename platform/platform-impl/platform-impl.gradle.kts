@@ -9,7 +9,7 @@ defaultTasks = listOf("dist")
 
 dependencies {
     compile(project(":platform-api"))
-    compile("com.miglayout:miglayout-swing:5.1")
+    compileOnly("com.miglayout:miglayout-swing:5.1")
 }
 
 sourceSets.main {
