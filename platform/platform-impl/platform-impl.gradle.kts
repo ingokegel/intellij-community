@@ -9,46 +9,53 @@ defaultTasks = listOf("dist")
 
 dependencies {
     compile(project(":platform-api"))
+    compile("com.miglayout:miglayout-swing:5.1")
 }
 
-sourceSets["main"].java {
-    include("com/intellij/ide/ui/laf/**")
-    exclude(
-            "com/intellij/ide/ui/laf/darcula/ui/DarculaOptionButtonUI.kt",
-            "com/intellij/ide/ui/laf/intellij/MacIntelliJOptionButtonUI.kt",
-            "com/intellij/ide/ui/laf/intellij/WinIntelliJOptionButtonUI.kt",
-            "com/intellij/ide/ui/laf/intellij/WinOnOffButtonUI.java"
-    )
+sourceSets.main {
+    java {
+        include("com/intellij/ide/ui/laf/**")
+        exclude(
+                "com/intellij/ide/ui/laf/darcula/ui/DarculaOptionButtonUI.kt",
+                "com/intellij/ide/ui/laf/intellij/MacIntelliJOptionButtonUI.kt",
+                "com/intellij/ide/ui/laf/intellij/WinIntelliJOptionButtonUI.kt",
+                "com/intellij/ide/ui/laf/intellij/WinOnOffButtonUI.java"
+        )
 
-    include("com/intellij/ui/plaf/**")
-    include(
-            "com/intellij/ui/WindowMoveListener.java",
-            "com/intellij/ui/WindowMouseListener.java",
-            "com/intellij/ui/WindowResizeListener.java",
-            "com/intellij/ui/ColoredSideBorder.java",
-            "com/intellij/ui/mac/MacPopupMenuUI.java"
-    )
+        include("com/intellij/ui/plaf/**")
+        include(
+                "com/intellij/ui/WindowMoveListener.java",
+                "com/intellij/ui/WindowMouseListener.java",
+                "com/intellij/ui/WindowResizeListener.java",
+                "com/intellij/ui/ColoredSideBorder.java",
+                "com/intellij/ui/mac/MacPopupMenuUI.java",
+                "com/intellij/ide/ui/UITheme.java",
+                "com/intellij/ide/ui/UIThemeProvider.java"
+        )
+    }
 }
 
 tasks {
 
-    val jar by getting(Jar::class)
+    val jar by existing(Jar::class)
 
-    create<Copy>("dist") {
+    register<Copy>("dist") {
         dependsOn(jar)
-        from(configurations.compile.files.filterNot { file ->
-            listOf(
-                    "annotations",
-                    "java5",
-                    "jython",
-                    "rhino",
-                    "batik",
-                    "xalan",
-                    "xmlgraphics",
-                    "xml-apis",
-                    "jna",
-                    "kotlin"
-            ).any { file.name.contains(it) }
+        from(configurations.compile.map {
+            it.filterNot { file ->
+                listOf(
+                        "annotations",
+                        "java5",
+                        "jython",
+                        "rhino",
+                        "batik",
+                        "xalan",
+                        "xmlgraphics",
+                        "xml-apis",
+                        "jna",
+                        "kotlin"
+                ).any { file.name.contains(it) }
+            }
         })
         from(jar)
         into("$buildDir/dist")
@@ -56,6 +63,7 @@ tasks {
 
 
     named<Copy>("processResources") {
+        duplicatesStrategy = DuplicatesStrategy.FAIL
         from("src") {
             include("**/com/intellij/ide/ui/laf/**/*.properties")
             include("**/com/intellij/ide/ui/laf/**/*.css")
@@ -72,7 +80,71 @@ tasks {
             include("welcome/*")
             include("toolbarDecorator/*")
         }
+        from("../icons/compatibilityResources") {
+            includeIconList("general/",
+                    "bullet",
+                    "configurableDefault",
+                    "defaultKeymap",
+                    "downloadPlugin",
+                    "errorsInProgress",
+                    "gearHover",
+                    "hideWarnings",
+                    "ijLogo",
+                    "jdk",
+                    "keyboardShortcut",
+                    "keymap",
+                    "macCorner",
+                    "mdot-empty",
+                    "mdot-white",
+                    "mdot",
+                    "mouseShortcut",
+                    "passwordLock",
+                    "pathVariables",
+                    "pluginManager",
+                    "progress",
+                    "searchEverywhereGear",
+                    "show_to_override",
+                    "tab",
+                    "settings",
+                    "projectStructure",
+                    "uninstallPlugin",
+                    "webSettings"
+            )
+            includeIconList("actions/",
+                    "addFacesSupport",
+                    "allLeft",
+                    "allRight",
+                    "createPatch",
+                    "erDiagram",
+                    "fileStatus",
+                    "findWhite",
+                    "multicaret.svg",
+                    "quickList",
+                    "realIntentionOffBulb",
+                    "showViewer"
+            )
+            includeIconList( "toolbarDecorator/",
+                    "analyze"
+            )
+            includeIconList( "nodes/",
+                    "disabledPointcut",
+                    "newException",
+                    "pluginUpdate",
+                    "pointcut",
+                    "ppWebLogo",
+                    "treeDownArrow",
+                    "treeRightArrow"
+            )
+            includeIconList( "fileTypes/",
+                    "facelets",
+                    "facesConfig",
+                    "typeScript"
+            )
+        }
         includeEmptyDirs = false
     }
 }
 
+fun Copy.includeIconList(prefix: String, vararg names: String) {
+    include(names.map { "$prefix$it*" })
+}

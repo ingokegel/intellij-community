@@ -15,4 +15,12 @@ public class PropertiesComponent {
     public void setValue(String name, String value, String defaultValue) {
 
     }
+
+    public void setValue(String name, String value) {
+
+    }
+
+    public void unsetValue(String name) {
+
+    }
 }
