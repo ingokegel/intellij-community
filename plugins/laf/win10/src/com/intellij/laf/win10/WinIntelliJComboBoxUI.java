@@ -324,6 +324,13 @@ public class WinIntelliJComboBoxUI extends DarculaComboBoxUI {
           }
 
           @Override
+          public int getBaseline(int width, int height) {
+            // MigLayout queries baseline for zero-sized components and the insets of the combo box produce a negative
+            // height of the editor, causing an IAE
+            return super.getBaseline(Math.max(width, 0), Math.max(height, 0));
+          }
+
+          @Override
           public Color getBackground() {
             return getComboBackground(false);
           }
