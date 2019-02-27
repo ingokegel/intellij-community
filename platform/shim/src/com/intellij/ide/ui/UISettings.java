@@ -5,6 +5,7 @@ import java.awt.*;
 public class UISettings {
 
     public static final UISettings INSTANCE = new UISettings();
+    private static final UISettingsState DUMMY_SETTINGS_STATE = new UISettingsState();
 
     public static void setupAntialiasing(Graphics g) {
     }
@@ -42,5 +43,9 @@ public class UISettings {
 
     public boolean getSmoothScrolling() {
         return true;
+    }
+
+    public UISettingsState getState() {
+        return DUMMY_SETTINGS_STATE;
     }
 }
