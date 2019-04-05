@@ -1,11 +1,16 @@
 package com.intellij.ide.ui;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.awt.*;
 
 public class UISettings {
 
     public static final UISettings INSTANCE = new UISettings();
     private static final UISettingsState DUMMY_SETTINGS_STATE = new UISettingsState();
+    private static boolean overrideLafFonts = false;
+    private static String fontFace;
+    private static int fontSize;
 
     public static void setupAntialiasing(Graphics g) {
     }
@@ -26,15 +31,21 @@ public class UISettings {
     }
 
     public boolean getOverrideLafFonts() {
-        return false;
+        return overrideLafFonts;
+    }
+
+    public static void setOverrideLafFonts(@NotNull String fontFace, int fontSize) {
+        overrideLafFonts = true;
+        UISettings.fontFace = fontFace;
+        UISettings.fontSize = fontSize;
     }
 
     public String getFontFace() {
-        throw new UnsupportedOperationException();
+        return fontFace;
     }
 
     public int getFontSize() {
-        throw new UnsupportedOperationException();
+        return fontSize;
     }
 
     public boolean getDisableMnemonicsInControls() {
