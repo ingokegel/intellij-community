@@ -2,14 +2,14 @@ package com.intellij.ide.ui;
 
 public class UISettingsState {
     public boolean getOverrideLafFonts() {
-        return false;
+        return UISettings.getInstance().getOverrideLafFonts();
     }
 
     public String getFontFace() {
-        throw new UnsupportedOperationException();
+        return UISettings.getInstance().getFontFace();
     }
 
     public int getFontSize() {
-        throw new UnsupportedOperationException();
+        return UISettings.getInstance().getFontSize();
     }
 }
