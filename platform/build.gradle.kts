@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import util.addExludesFromSourceSet
 
 plugins {
-    kotlin("jvm") version "1.3.0" apply false
+    kotlin("jvm") version "1.3.21" apply false
 }
 
 val rootBuildDir = mkdir("build")
