@@ -8,6 +8,6 @@ java {
 }
 
 dependencies {
-    compile("org.jetbrains:annotations-java5:16.0.2")
+    compile("org.jetbrains:annotations-java5:17.0.0")
     compile(kotlin("reflect"))
 }
