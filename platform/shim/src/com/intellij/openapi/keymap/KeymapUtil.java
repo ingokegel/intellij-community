@@ -13,4 +13,8 @@ public class KeymapUtil {
     public static String getKeyModifiersTextForMacOSLeopard(int j1) {
         return "";
     }
+
+    public static String getFirstKeyboardShortcutText(String showSearchHistory) {
+        return "";
+    }
 }

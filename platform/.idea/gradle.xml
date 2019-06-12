@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/platform-impl" />
             <option value="$PROJECT_DIR$/shim" />
             <option value="$PROJECT_DIR$/util" />
+            <option value="$PROJECT_DIR$/util-class-loader" />
             <option value="$PROJECT_DIR$/util-rt" />
           </set>
         </option>

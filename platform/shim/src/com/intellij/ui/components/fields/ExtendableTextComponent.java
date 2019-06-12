@@ -32,5 +32,6 @@ public class ExtendableTextComponent extends JTextField {
         default Runnable getActionOnClick() {
           return null;
         }
+        default int getAfterIconOffset() {return 0; }
     }
 }
