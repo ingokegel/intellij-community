@@ -28,6 +28,7 @@ sourceSets.main {
                 "com/intellij/ui/components/TwoWayAnimator.java",
                 "com/intellij/ui/components/ScrollPainter.java",
                 "com/intellij/ui/components/DefaultScrollBarUI.java",
+                "com/intellij/ui/components/ScrollBarPainter.java",
                 "com/intellij/ui/components/Interpolable.java",
                 "com/intellij/ui/border/IdeaTitledBorder.java",
                 "com/intellij/ui/TitledSeparator.java",
