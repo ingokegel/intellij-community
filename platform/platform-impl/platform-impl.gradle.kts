@@ -16,6 +16,7 @@ sourceSets.main {
     java {
         include("com/intellij/ide/ui/laf/**")
         exclude(
+                "com/intellij/ide/ui/laf/TempUIThemeBasedLookAndFeelInfo.java",
                 "com/intellij/ide/ui/laf/darcula/ui/DarculaOptionButtonUI.kt",
                 "com/intellij/ide/ui/laf/intellij/MacIntelliJOptionButtonUI.kt",
                 "com/intellij/ide/ui/laf/intellij/WinIntelliJOptionButtonUI.kt",

@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import util.addExludesFromSourceSet
 
 plugins {
-    kotlin("jvm") version "1.3.21" apply false
+    kotlin("jvm") version "1.3.30" apply false
 }
 
 val rootBuildDir = mkdir("build")
@@ -23,8 +23,6 @@ subprojects {
     }
     pluginManager.withPlugin("java") {
         configure<JavaPluginConvention> {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
             sourceSets {
                 "main" {
                     java {
@@ -36,6 +34,8 @@ subprojects {
 
         tasks.withType<JavaCompile>().configureEach {
             options.encoding = "UTF-8"
+            sourceCompatibility = "1.8"
+            targetCompatibility = "1.8"
         }
 
         tasks.withType<KotlinCompile>().configureEach {
