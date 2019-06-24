@@ -82,6 +82,7 @@ tasks {
             include("toolbarDecorator/*")
         }
         from("../icons/compatibilityResources") {
+            include("mac/*")
             includeIconList("general/",
                     "bullet",
                     "configurableDefault",
