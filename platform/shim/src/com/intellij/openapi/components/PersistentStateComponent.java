@@ -27,4 +27,7 @@ public interface PersistentStateComponent<T> {
    */
   default void noStateLoaded() {
   }
+
+  default void initializeComponent() {
+  }
 }

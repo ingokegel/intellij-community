@@ -6,6 +6,7 @@ import com.intellij.util.messages.MessageBus;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
+import java.util.concurrent.Future;
 
 public class Application implements ComponentManager {
 
@@ -49,7 +50,7 @@ public class Application implements ComponentManager {
         EventQueue.invokeLater(runnable);
     }
 
-    public void executeOnPooledThread(Runnable runnable) {
+    public Future<?> executeOnPooledThread(@NotNull Runnable action) {
         throw new UnsupportedOperationException();
     }
 

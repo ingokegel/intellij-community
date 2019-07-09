@@ -41,7 +41,6 @@ sourceSets.main {
                 "com/intellij/util/ui/LafIconLookup.kt",
                 "com/intellij/openapi/wm/IdeGlassPane.java",
                 "com/intellij/openapi/application/ApplicationActivationListener.java",
-                "com/intellij/util/concurrency/QueueProcessor.java",
                 "com/intellij/util/ui/update/UiNotifyConnector.java",
                 "com/intellij/util/ui/update/Activatable.java",
                 "com/intellij/ui/ScreenUtil.java",
