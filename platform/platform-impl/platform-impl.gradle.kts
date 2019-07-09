@@ -9,12 +9,14 @@ defaultTasks = listOf("dist")
 
 dependencies {
     compile(project(":platform-api"))
+    compile("com.google.code.gson:gson:2.8.5")
     compileOnly("com.miglayout:miglayout-swing:5.1")
 }
 
 sourceSets.main {
     java {
         include("com/intellij/ide/ui/laf/**")
+        exclude("com/intellij/ide/ui/laf/darcula/ui/DarculaJBPopupComboPopup.java")
         exclude(
                 "com/intellij/ide/ui/laf/TempUIThemeBasedLookAndFeelInfo.java",
                 "com/intellij/ide/ui/laf/darcula/ui/DarculaOptionButtonUI.kt",
@@ -25,6 +27,7 @@ sourceSets.main {
 
         include("com/intellij/ui/plaf/**")
         include(
+                "com/intellij/ui/TableActions.java",
                 "com/intellij/ui/WindowMoveListener.java",
                 "com/intellij/ui/WindowMouseListener.java",
                 "com/intellij/ui/WindowResizeListener.java",
