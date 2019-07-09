@@ -47,7 +47,7 @@ private fun MutableSet<File>.addExcludes(node: FileTreeNode, prefix: String, pro
     val file = project.file(prefix)
     addAll(file.listFiles { _, name ->
         node.children.keys.none { it == name }
-    })
+    } ?: throw RuntimeException(file.path + " has no children"))
 
     for (child in node.children.values) {
         if (child.children.isNotEmpty()) {
