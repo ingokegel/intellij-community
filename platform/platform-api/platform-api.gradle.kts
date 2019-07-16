@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    compile(project(":core-api"))
+    compile(project(":shim"))
     compile("com.fasterxml.jackson.core:jackson-databind:2.9.5")
 }
 
@@ -41,6 +41,9 @@ sourceSets.main {
                 "com/intellij/util/ui/LafIconLookup.kt",
                 "com/intellij/openapi/wm/IdeGlassPane.java",
                 "com/intellij/openapi/application/ApplicationActivationListener.java",
+                "com/intellij/openapi/actionSystem/ex/ActionManagerEx.java",
+                "com/intellij/openapi/actionSystem/ex/ActionPopupMenuListener.java",
+                "com/intellij/openapi/actionSystem/ActionPlaces.java",
                 "com/intellij/util/ui/update/UiNotifyConnector.java",
                 "com/intellij/util/ui/update/Activatable.java",
                 "com/intellij/ui/ScreenUtil.java",
