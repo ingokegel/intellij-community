@@ -9,6 +9,9 @@ defaultTasks = listOf("dist")
 
 dependencies {
     compile(project(":platform-api"))
+    compile(project(":projectModel-api"))
+    compile(project(":core-ui"))
+    compile(project(":object-serializer"))
     compile("com.google.code.gson:gson:2.8.5")
     compileOnly("com.miglayout:miglayout-swing:5.1")
 }
@@ -57,7 +60,9 @@ tasks {
                         "xmlgraphics",
                         "xml-apis",
                         "jna",
-                        "kotlin"
+                        "kotlin",
+                        "jdom",
+                        "gson"
                 ).any { file.name.contains(it) }
             }
         })
@@ -68,6 +73,9 @@ tasks {
 
     named<Copy>("processResources") {
         duplicatesStrategy = DuplicatesStrategy.FAIL
+        from("../platform-resources-en/src") {
+            include("messages/IdeBundle.properties")
+        }
         from("src") {
             include("**/com/intellij/ide/ui/laf/**/*.properties")
             include("**/com/intellij/ide/ui/laf/**/*.css")

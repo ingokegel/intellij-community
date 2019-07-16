@@ -10,14 +10,22 @@
       <module name="common_test" target="1.8" />
       <module name="core-api_main" target="1.8" />
       <module name="core-api_test" target="1.8" />
+      <module name="core-ui_main" target="1.8" />
+      <module name="core-ui_test" target="1.8" />
+      <module name="editor-ui-api_main" target="1.8" />
+      <module name="editor-ui-api_test" target="1.8" />
       <module name="extensions_main" target="1.8" />
       <module name="extensions_test" target="1.8" />
       <module name="forms_rt_main" target="1.8" />
       <module name="forms_rt_test" target="1.8" />
+      <module name="indexing-api_main" target="1.8" />
+      <module name="indexing-api_test" target="1.8" />
       <module name="java5_main" target="1.8" />
       <module name="java5_test" target="1.8" />
       <module name="model-api_main" target="1.8" />
       <module name="model-api_test" target="1.8" />
+      <module name="object-serializer_main" target="1.8" />
+      <module name="object-serializer_test" target="1.8" />
       <module name="platform-api_main" target="1.8" />
       <module name="platform-api_test" target="1.8" />
       <module name="platform-impl_main" target="1.8" />
