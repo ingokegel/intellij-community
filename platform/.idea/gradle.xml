@@ -8,11 +8,19 @@
         <option name="gradleHome" value="$USER_HOME$/progs/gradle-build" />
         <option name="modules">
           <set>
+            <option value="$PROJECT_DIR$/../jps/model-api" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/core-api" />
+            <option value="$PROJECT_DIR$/core-ui" />
+            <option value="$PROJECT_DIR$/editor-ui-api" />
+            <option value="$PROJECT_DIR$/extensions" />
+            <option value="$PROJECT_DIR$/indexing-api" />
+            <option value="$PROJECT_DIR$/jps" />
+            <option value="$PROJECT_DIR$/object-serializer" />
             <option value="$PROJECT_DIR$/platform-api" />
             <option value="$PROJECT_DIR$/platform-impl" />
+            <option value="$PROJECT_DIR$/projectModel-api" />
             <option value="$PROJECT_DIR$/shim" />
             <option value="$PROJECT_DIR$/util" />
             <option value="$PROJECT_DIR$/util-class-loader" />
