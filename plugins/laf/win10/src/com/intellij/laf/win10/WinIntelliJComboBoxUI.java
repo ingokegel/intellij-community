@@ -150,6 +150,7 @@ public class WinIntelliJComboBoxUI extends DarculaComboBoxUI {
     @SuppressWarnings("unchecked")
     ListCellRenderer<Object> renderer = comboBox.getRenderer();
     Component c = renderer.getListCellRendererComponent(listBox, comboBox.getSelectedItem(), -1, false, false);
+    c.setBackground(UIManager.getColor("ComboBox.background"));
 
     c.setFont(comboBox.getFont());
     c.setForeground(comboBox.isEnabled() ? UIManager.getColor("Label.foreground") : UIManager.getColor("Label.disabledForeground"));
