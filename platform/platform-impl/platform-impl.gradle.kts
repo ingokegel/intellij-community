@@ -1,11 +1,10 @@
-import org.gradle.internal.impldep.org.bouncycastle.crypto.tls.BulkCipherAlgorithm.idea
 
 plugins {
     kotlin("jvm")
     idea
 }
 
-defaultTasks = listOf("dist")
+defaultTasks = mutableListOf("dist")
 
 dependencies {
     compile(project(":platform-api"))
@@ -48,8 +47,8 @@ tasks {
 
     register<Copy>("dist") {
         dependsOn(jar)
-        from(configurations.compile.map {
-            it.filterNot { file ->
+        from(configurations.compile.map { compile ->
+            compile.filterNot { file ->
                 listOf(
                         "annotations",
                         "java5",
