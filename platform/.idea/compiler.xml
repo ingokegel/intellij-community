@@ -20,6 +20,10 @@
       <module name="forms_rt_test" target="1.8" />
       <module name="indexing-api_main" target="1.8" />
       <module name="indexing-api_test" target="1.8" />
+      <module name="intellij-community-laf-platform-api_main" target="1.8" />
+      <module name="intellij-community-laf-platform-api_test" target="1.8" />
+      <module name="intellij-community-laf-platform-impl_main" target="1.8" />
+      <module name="intellij-community-laf-platform-impl_test" target="1.8" />
       <module name="java5_main" target="1.8" />
       <module name="java5_test" target="1.8" />
       <module name="model-api_main" target="1.8" />
@@ -28,8 +32,32 @@
       <module name="object-serializer_test" target="1.8" />
       <module name="platform-api_main" target="1.8" />
       <module name="platform-api_test" target="1.8" />
+      <module name="platform-core-api_main" target="1.8" />
+      <module name="platform-core-api_test" target="1.8" />
+      <module name="platform-core-ui_main" target="1.8" />
+      <module name="platform-core-ui_test" target="1.8" />
+      <module name="platform-editor-ui-api_main" target="1.8" />
+      <module name="platform-editor-ui-api_test" target="1.8" />
+      <module name="platform-extensions_main" target="1.8" />
+      <module name="platform-extensions_test" target="1.8" />
       <module name="platform-impl_main" target="1.8" />
       <module name="platform-impl_test" target="1.8" />
+      <module name="platform-indexing-api_main" target="1.8" />
+      <module name="platform-indexing-api_test" target="1.8" />
+      <module name="platform-object-serializer_main" target="1.8" />
+      <module name="platform-object-serializer_test" target="1.8" />
+      <module name="platform-projectModel-api_main" target="1.8" />
+      <module name="platform-projectModel-api_test" target="1.8" />
+      <module name="platform-shim_main" target="1.8" />
+      <module name="platform-shim_test" target="1.8" />
+      <module name="platform-util-class-loader_main" target="1.8" />
+      <module name="platform-util-class-loader_test" target="1.8" />
+      <module name="platform-util-rt_main" target="1.8" />
+      <module name="platform-util-rt_test" target="1.8" />
+      <module name="platform-util_main" target="1.8" />
+      <module name="platform-util_test" target="1.8" />
+      <module name="platform.jps-model-api_main" target="1.8" />
+      <module name="platform.jps-model-api_test" target="1.8" />
       <module name="platform_buildSrc_main" target="1.8" />
       <module name="platform_buildSrc_test" target="1.8" />
       <module name="projectModel-api_main" target="1.8" />
