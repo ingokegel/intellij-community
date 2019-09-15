@@ -311,7 +311,7 @@ public class DarculaComboBoxUI extends BasicComboBoxUI implements Border, ErrorB
     }
 
     // paint selection in table-cell-editor mode correctly
-    boolean changeOpaque = c instanceof JComponent && DarculaUIUtil.isTableCellEditor(comboBox) && c.isOpaque();
+    boolean changeOpaque = c instanceof JComponent && (DarculaUIUtil.isTableCellEditor(comboBox) || !comboBox.isEnabled()) && c.isOpaque();
     if (changeOpaque) {
       ((JComponent)c).setOpaque(false);
     }
