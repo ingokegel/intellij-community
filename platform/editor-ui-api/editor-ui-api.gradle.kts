@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    compile(project(":indexing-api"))
-    compile(project(":core-ui"))
-    compile("org.jetbrains:annotations:17.0.0")
+    api(project(":indexing-api"))
+    api(project(":core-ui"))
+    api("org.jetbrains:annotations:17.0.0")
 }

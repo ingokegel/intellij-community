@@ -5,8 +5,8 @@ plugins {
 }
 
 dependencies {
-  compile(project(":core-api"))
-  compile(project(":util"))
+  api(project(":core-api"))
+  api(project(":util"))
 }
 
 tasks {

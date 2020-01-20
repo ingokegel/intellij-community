@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-    compile(project(":projectModel-api"))
-    compile(project(":core-api"))
+    api(project(":projectModel-api"))
+    api(project(":core-api"))
 }
 
 sourceSets.main {
