@@ -1,5 +1,7 @@
 package com.intellij.ide.ui;
 
+import com.intellij.util.messages.Topic;
+
 import java.util.EventListener;
 
 /**
@@ -10,5 +12,7 @@ import java.util.EventListener;
  * @author Vladimir Kondratyev
  */
 public interface LafManagerListener extends EventListener {
+    Topic<LafManagerListener> TOPIC = new Topic<>(LafManagerListener.class);
+
     void lookAndFeelChanged(LafManager source);
 }

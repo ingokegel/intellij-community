@@ -39,6 +39,7 @@ sourceSets.main {
                 "com/intellij/util/ui/Animator.java",
                 "com/intellij/util/ui/NSScrollerHelper.java",
                 "com/intellij/util/ui/LafIconLookup.kt",
+                "com/intellij/util/ui/MouseWheelSmoothScroll.java",
                 "com/intellij/openapi/wm/IdeGlassPane.java",
                 "com/intellij/openapi/application/ApplicationActivationListener.java",
                 "com/intellij/openapi/actionSystem/ex/ActionManagerEx.java",
