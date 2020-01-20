@@ -1,7 +1,7 @@
 plugins {
-    java
+    `java-library`
 }
 
 dependencies {
-    compile(project(":util"))
+    api(project(":util"))
 }
