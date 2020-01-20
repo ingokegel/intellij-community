@@ -17,6 +17,7 @@ package com.intellij.ide.ui;
 
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.ui.CollectionComboBoxModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -48,4 +49,6 @@ public abstract class LafManager {
   public abstract void addLafManagerListener(@NotNull LafManagerListener listener, @NotNull Disposable disposable);
 
   public abstract void removeLafManagerListener(@NotNull LafManagerListener listener);
+
+  public abstract CollectionComboBoxModel<UIManager.LookAndFeelInfo> getLafComboBoxModel();
 }

@@ -1,3 +1,5 @@
+@file:Suppress("HasPlatformType")
+
 import org.gradle.plugins.ide.idea.model.IdeaModel
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import util.addExludesFromSourceSet
@@ -15,12 +17,15 @@ tasks {
     }
 }
 
+val prepareDist by tasks.creating
+
 subprojects {
     buildDir = File(rootBuildDir, path.substring(1).replace(":", "/"))
     repositories {
         mavenCentral()
         maven("https://jetbrains.bintray.com/intellij-third-party-dependencies")
     }
+
     pluginManager.withPlugin("java") {
         configure<JavaPluginConvention> {
             sourceSets {
@@ -30,6 +35,10 @@ subprojects {
                     }
                 }
             }
+        }
+
+        tasks.named("jar", Jar::class) {
+            prepareDist.dependsOn(this)
         }
 
         tasks.withType<JavaCompile>().configureEach {

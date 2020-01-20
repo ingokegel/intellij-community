@@ -13,6 +13,7 @@ dependencies {
     api(project(":object-serializer"))
     api("com.google.code.gson:gson:2.8.5")
     compileOnly("com.miglayout:miglayout-swing:5.1")
+    compileOnly("com.google.guava:guava:27.1-jre")
 }
 
 sourceSets.main {
@@ -46,7 +47,7 @@ tasks {
     val jar by existing(Jar::class)
 
     register<Copy>("dist") {
-        dependsOn(jar)
+        dependsOn(":prepareDist")
         from(configurations.runtimeClasspath.map { compile ->
             compile.filterNot { file ->
                 listOf(

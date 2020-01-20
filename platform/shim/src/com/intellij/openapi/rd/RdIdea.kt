@@ -1,0 +1,22 @@
+// Copyright 2000-2020 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+package com.intellij.openapi.rd
+
+import com.intellij.ui.paint.LinePainter2D
+import java.awt.Color
+import java.awt.Graphics2D
+import java.awt.Point
+
+fun Graphics2D.paint2DLine(from: Point, to: Point,
+                           strokeType: LinePainter2D.StrokeType,
+                           strokeWidth: Double, color: Color) {
+    this.paint2DLine(from.getX(), from.getY(), to.getX(), to.getY(), strokeType, strokeWidth, color)
+}
+
+fun Graphics2D.paint2DLine(x1: Double, y1: Double, x2: Double, y2: Double,
+                           strokeType: LinePainter2D.StrokeType,
+                           strokeWidth: Double, color: Color
+) {
+    this.color = color
+    LinePainter2D.paint(this, x1, y1, x2, y2, strokeType,
+        strokeWidth)
+}
