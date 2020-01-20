@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-  compile(project(":core-api"))
-  compile(project(":projectModel-api"))
-  compile("be.cyberelf.nanoxml:nanoxml:2.2.3")
+  api(project(":core-api"))
+  api(project(":projectModel-api"))
+  api("be.cyberelf.nanoxml:nanoxml:2.2.3")
 }

@@ -1,8 +1,8 @@
 plugins {
-    java
+    `java-library`
 }
 
 dependencies {
-    compile(project(":util"))
-    compile("org.picocontainer:picocontainer:1.2")
+    api(project(":util"))
+    api("org.picocontainer:picocontainer:1.2")
 }

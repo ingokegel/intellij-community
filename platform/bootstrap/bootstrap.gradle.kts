@@ -1,8 +1,8 @@
 plugins {
-    java
+    `java-library`
 }
 
 dependencies {
-    compile(project(":core-api"))
-    compile(project(":jps:model-api"))
+    api(project(":core-api"))
+    api(project(":jps:model-api"))
 }

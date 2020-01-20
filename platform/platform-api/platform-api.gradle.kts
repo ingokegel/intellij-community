@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-    compile(project(":shim"))
-    compile("com.fasterxml.jackson.core:jackson-databind:2.9.5")
+    api(project(":shim"))
+    api("com.fasterxml.jackson.core:jackson-databind:2.9.5")
 }
 
 sourceSets.main {

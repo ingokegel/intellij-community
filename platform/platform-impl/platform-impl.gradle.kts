@@ -7,11 +7,11 @@ plugins {
 defaultTasks = mutableListOf("dist")
 
 dependencies {
-    compile(project(":platform-api"))
-    compile(project(":projectModel-api"))
-    compile(project(":core-ui"))
-    compile(project(":object-serializer"))
-    compile("com.google.code.gson:gson:2.8.5")
+    api(project(":platform-api"))
+    api(project(":projectModel-api"))
+    api(project(":core-ui"))
+    api(project(":object-serializer"))
+    api("com.google.code.gson:gson:2.8.5")
     compileOnly("com.miglayout:miglayout-swing:5.1")
 }
 
@@ -47,7 +47,7 @@ tasks {
 
     register<Copy>("dist") {
         dependsOn(jar)
-        from(configurations.compile.map { compile ->
+        from(configurations.runtimeClasspath.map { compile ->
             compile.filterNot { file ->
                 listOf(
                         "annotations",
