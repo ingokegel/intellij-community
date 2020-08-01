@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.5">
       <module name="bootstrap_main" target="1.8" />
       <module name="bootstrap_test" target="1.8" />
       <module name="buildSrc_main" target="1.8" />
@@ -56,8 +56,52 @@
       <module name="platform-util-rt_test" target="1.8" />
       <module name="platform-util_main" target="1.8" />
       <module name="platform-util_test" target="1.8" />
+      <module name="platform.buildSrc" target="1.8" />
+      <module name="platform.buildSrc.main" target="1.8" />
+      <module name="platform.buildSrc.test" target="1.8" />
+      <module name="platform.core-api" target="1.8" />
+      <module name="platform.core-api.main" target="1.8" />
+      <module name="platform.core-api.test" target="1.8" />
+      <module name="platform.core-ui" target="1.8" />
+      <module name="platform.core-ui.main" target="1.8" />
+      <module name="platform.core-ui.test" target="1.8" />
+      <module name="platform.editor-ui-api" target="1.8" />
+      <module name="platform.editor-ui-api.main" target="1.8" />
+      <module name="platform.editor-ui-api.test" target="1.8" />
+      <module name="platform.extensions" target="1.8" />
+      <module name="platform.extensions.main" target="1.8" />
+      <module name="platform.extensions.test" target="1.8" />
+      <module name="platform.indexing-api" target="1.8" />
+      <module name="platform.indexing-api.main" target="1.8" />
+      <module name="platform.indexing-api.test" target="1.8" />
       <module name="platform.jps-model-api_main" target="1.8" />
       <module name="platform.jps-model-api_test" target="1.8" />
+      <module name="platform.jps.model-api" target="1.8" />
+      <module name="platform.jps.model-api.main" target="1.8" />
+      <module name="platform.jps.model-api.test" target="1.8" />
+      <module name="platform.object-serializer" target="1.8" />
+      <module name="platform.object-serializer.main" target="1.8" />
+      <module name="platform.object-serializer.test" target="1.8" />
+      <module name="platform.platform-api" target="1.8" />
+      <module name="platform.platform-api.main" target="1.8" />
+      <module name="platform.platform-api.test" target="1.8" />
+      <module name="platform.platform-impl" target="1.8" />
+      <module name="platform.platform-impl.main" target="1.8" />
+      <module name="platform.platform-impl.test" target="1.8" />
+      <module name="platform.projectModel-api" target="1.8" />
+      <module name="platform.projectModel-api.main" target="1.8" />
+      <module name="platform.projectModel-api.test" target="1.8" />
+      <module name="platform.shim" target="1.8" />
+      <module name="platform.shim.main" target="1.8" />
+      <module name="platform.shim.test" target="1.8" />
+      <module name="platform.util" target="1.8" />
+      <module name="platform.util-class-loader" target="1.6" />
+      <module name="platform.util-class-loader.main" target="1.8" />
+      <module name="platform.util-class-loader.test" target="1.8" />
+      <module name="platform.util-rt.main" target="1.8" />
+      <module name="platform.util-rt.test" target="1.8" />
+      <module name="platform.util.main" target="1.8" />
+      <module name="platform.util.test" target="1.8" />
       <module name="platform_buildSrc_main" target="1.8" />
       <module name="platform_buildSrc_test" target="1.8" />
       <module name="projectModel-api_main" target="1.8" />

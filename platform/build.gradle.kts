@@ -5,14 +5,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import util.addExludesFromSourceSet
 
 plugins {
-    kotlin("jvm") version "1.3.60" apply false
+    kotlin("jvm") version "1.3.70" apply false
 }
 
 val rootBuildDir = mkdir("build")
 
 tasks {
     getByName<Wrapper>("wrapper") {
-        gradleVersion = "6.1"
+        gradleVersion = "6.5.1"
         distributionType = Wrapper.DistributionType.ALL
     }
 }
