@@ -37,7 +37,8 @@ sourceSets.main {
                 "com/intellij/ui/ColoredSideBorder.java",
                 "com/intellij/ui/mac/MacPopupMenuUI.java",
                 "com/intellij/ide/ui/UITheme.java",
-                "com/intellij/ide/ui/UIThemeProvider.java"
+                "com/intellij/ide/ui/UIThemeProvider.java",
+                "com/intellij/ide/ui/LafProvider.java"
         )
     }
 }
@@ -58,6 +59,7 @@ tasks {
                         "batik",
                         "xalan",
                         "xmlgraphics",
+                        "intellij-deps-fastutil",
                         "xml-apis",
                         "jna",
                         "kotlin",
@@ -73,8 +75,14 @@ tasks {
 
     named<Copy>("processResources") {
         duplicatesStrategy = DuplicatesStrategy.FAIL
-        from("../platform-resources-en/src") {
+        from("../platform-api/resources") {
             include("messages/IdeBundle.properties")
+        }
+        from("../editor-ui-api/resources") {
+            include("messages/PlatformEditorBundle.properties")
+        }
+        from("../platform-resources/src") {
+            include("themes/**")
         }
         from("src") {
             include("**/com/intellij/ide/ui/laf/**/*.properties")

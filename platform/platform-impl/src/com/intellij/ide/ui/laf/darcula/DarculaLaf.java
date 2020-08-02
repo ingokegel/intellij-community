@@ -62,17 +62,6 @@ public class DarculaLaf extends BasicLookAndFeel implements UserDataHolder {
     this.disabledIconProvider = disabledIconProvider;
   }
 
-  @Override
-  public Icon getDisabledIcon(JComponent component, Icon icon) {
-    if (disabledIconProvider != null) {
-      Icon disabledIcon = disabledIconProvider.getDisabledIcon(icon, component);
-      if (disabledIcon != null) {
-        return disabledIcon;
-      }
-    }
-    return super.getDisabledIcon(component, icon);
-  }
-
   public interface DisabledIconProvider {
     Icon getDisabledIcon(Icon icon, JComponent component);
   }
@@ -483,6 +472,12 @@ public class DarculaLaf extends BasicLookAndFeel implements UserDataHolder {
   @Override
   public Icon getDisabledIcon(JComponent component, Icon icon) {
     if (icon == null) return null;
+    if (disabledIconProvider != null) {
+      Icon disabledIcon = disabledIconProvider.getDisabledIcon(icon, component);
+      if (disabledIcon != null) {
+        return disabledIcon;
+      }
+    }
 
     ScaleContext ctx = ScaleContext.create(component);
     icon = MultiResolutionImageProvider.convertFromJBIcon(icon, ctx);

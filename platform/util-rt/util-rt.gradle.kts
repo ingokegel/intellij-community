@@ -8,6 +8,6 @@ java {
 }
 
 dependencies {
-    api("org.jetbrains:annotations-java5:17.0.0")
+    implementation("org.jetbrains:annotations-java5:19.0.0")
     api(kotlin("reflect"))
 }

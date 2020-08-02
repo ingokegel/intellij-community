@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
     api(project(":shim"))
-    api("com.fasterxml.jackson.core:jackson-databind:2.9.5")
+    api("com.fasterxml.jackson.core:jackson-databind:2.10.3")
 }
 
 sourceSets.main {
@@ -32,6 +32,7 @@ sourceSets.main {
                 "com/intellij/ui/components/Interpolable.java",
                 "com/intellij/ui/border/IdeaTitledBorder.java",
                 "com/intellij/ui/TitledSeparator.java",
+                "com/intellij/ui/UIBundle.java",
                 "com/intellij/util/ui/DialogUtil.java",
                 "com/intellij/util/ui/ComponentWithEmptyText.java",
                 "com/intellij/util/Alarm.java",
@@ -40,6 +41,9 @@ sourceSets.main {
                 "com/intellij/util/ui/NSScrollerHelper.java",
                 "com/intellij/util/ui/LafIconLookup.kt",
                 "com/intellij/util/ui/MouseWheelSmoothScroll.java",
+                "com/intellij/util/ui/TouchScrollUtil.java",
+                "com/intellij/util/ui/TouchScroll.java",
+                "com/intellij/util/ui/SmoothScrollUtil.java",
                 "com/intellij/openapi/wm/IdeGlassPane.java",
                 "com/intellij/openapi/application/ApplicationActivationListener.java",
                 "com/intellij/openapi/actionSystem/ex/ActionManagerEx.java",
@@ -48,8 +52,12 @@ sourceSets.main {
                 "com/intellij/util/ui/update/UiNotifyConnector.java",
                 "com/intellij/util/ui/update/Activatable.java",
                 "com/intellij/ui/ScreenUtil.java",
+                "com/intellij/ide/IdeBundle.java",
+                "com/intellij/ide/ui/LafManager.java",
+                "com/intellij/ide/ui/LafManagerListener.java",
                 "com/intellij/ide/ui/UITheme.java",
-                "com/intellij/ide/ui/UIThemeProvider.java"
+                "com/intellij/ide/ui/UIThemeProvider.java",
+                "com/intellij/CommonBundle.java"
         )
     }
 }

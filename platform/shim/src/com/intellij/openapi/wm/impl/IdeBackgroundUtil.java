@@ -16,5 +16,6 @@ public class IdeBackgroundUtil {
     }
 
     public static final String EDITOR_PROP = "idea.background.editor";
+    public static final String FRAME_PROP = "idea.background.frame";
 
 }
