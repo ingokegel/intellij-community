@@ -31,7 +31,7 @@ import static com.intellij.laf.macos.MacIntelliJTextBorder.BW;
 /**
  * @author Konstantin Bulenkov
  */
-public final class MacIntelliJComboBoxUI extends DarculaComboBoxUI {
+public class MacIntelliJComboBoxUI extends DarculaComboBoxUI {
   private static final Icon ICON = EmptyIcon.create(MacIconLookup.getIcon("comboRight", false, false, true, false));
   private static final Icon EDITABLE_ICON = EmptyIcon.create(MacIconLookup.getIcon("comboRight", false, false, true, true));
 
