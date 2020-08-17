@@ -4,7 +4,7 @@ plugins {
     idea
 }
 
-defaultTasks = mutableListOf("dist")
+defaultTasks = mutableListOf("dist-all")
 
 dependencies {
     api(project(":platform-api"))
@@ -22,10 +22,7 @@ sourceSets.main {
         exclude("com/intellij/ide/ui/laf/darcula/ui/DarculaJBPopupComboPopup.java")
         exclude(
                 "com/intellij/ide/ui/laf/TempUIThemeBasedLookAndFeelInfo.java",
-                "com/intellij/ide/ui/laf/darcula/ui/DarculaOptionButtonUI.kt",
-                "com/intellij/ide/ui/laf/intellij/MacIntelliJOptionButtonUI.kt",
-                "com/intellij/ide/ui/laf/intellij/WinIntelliJOptionButtonUI.kt",
-                "com/intellij/ide/ui/laf/intellij/WinOnOffButtonUI.java"
+                "com/intellij/ide/ui/laf/darcula/ui/DarculaOptionButtonUI.kt"
         )
 
         include("com/intellij/ui/plaf/**")
@@ -47,7 +44,7 @@ tasks {
 
     val jar by existing(Jar::class)
 
-    register<Copy>("dist") {
+    val dist by registering(Copy::class) {
         dependsOn(":prepareDist")
         from(configurations.runtimeClasspath.map { compile ->
             compile.filterNot { file ->
@@ -72,9 +69,26 @@ tasks {
         into("$buildDir/dist")
     }
 
+    register<Copy>("dist-all") {
+        dependsOn(dist, ":plugins:laf:macos:dist", ":plugins:laf:win10:dist")
+    }
 
     named<Copy>("processResources") {
         duplicatesStrategy = DuplicatesStrategy.FAIL
+        from("../../plugins/laf/macos/resources") {
+            include("icons/**")
+            exclude("icons/icon-robots.txt")
+        }
+        from("../../plugins/laf/macos/src") {
+            include("com/intellij/laf/macos/macintellijlaf.properties")
+        }
+        from("../../plugins/laf/win10/resources") {
+            include("icons/**")
+            exclude("icons/icon-robots.txt")
+        }
+        from("../../plugins/laf/win10/src") {
+            include("com/intellij/laf/win10/win10intellijlaf.properties")
+        }
         from("../platform-api/resources") {
             include("messages/IdeBundle.properties")
         }

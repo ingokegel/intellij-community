@@ -88,6 +88,12 @@
       <module name="platform.platform-impl" target="1.8" />
       <module name="platform.platform-impl.main" target="1.8" />
       <module name="platform.platform-impl.test" target="1.8" />
+      <module name="platform.plugins.laf.macos" target="1.8" />
+      <module name="platform.plugins.laf.macos.main" target="1.8" />
+      <module name="platform.plugins.laf.macos.test" target="1.8" />
+      <module name="platform.plugins.laf.win10" target="1.8" />
+      <module name="platform.plugins.laf.win10.main" target="1.8" />
+      <module name="platform.plugins.laf.win10.test" target="1.8" />
       <module name="platform.projectModel-api" target="1.8" />
       <module name="platform.projectModel-api.main" target="1.8" />
       <module name="platform.projectModel-api.test" target="1.8" />
