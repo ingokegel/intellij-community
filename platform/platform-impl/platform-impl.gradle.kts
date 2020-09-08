@@ -104,6 +104,7 @@ tasks {
             include("**/com/intellij/ide/ui/laf/icons/**")
         }
         from("../icons/src") {
+            include("icons/ide/*")
             include("darcula/*")
             include("nodes/*")
             include("mac/*")
