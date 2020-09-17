@@ -3,8 +3,9 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_5
-    targetCompatibility = JavaVersion.VERSION_1_5
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(6))
+    }
 }
 
 dependencies {

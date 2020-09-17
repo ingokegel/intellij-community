@@ -12,7 +12,7 @@ val rootBuildDir = mkdir("build")
 
 tasks {
     getByName<Wrapper>("wrapper") {
-        gradleVersion = "6.5.1"
+        gradleVersion = "6.7-rc-1"
         distributionType = Wrapper.DistributionType.ALL
     }
 }
@@ -37,14 +37,18 @@ subprojects {
             }
         }
 
+        configure<JavaPluginExtension> {
+            toolchain {
+                languageVersion.set(JavaLanguageVersion.of(8))
+            }
+        }
+
         tasks.named("jar", Jar::class) {
             prepareDist.dependsOn(this)
         }
 
         tasks.withType<JavaCompile>().configureEach {
             options.encoding = "UTF-8"
-            sourceCompatibility = "1.8"
-            targetCompatibility = "1.8"
         }
 
         tasks.withType<KotlinCompile>().configureEach {
