@@ -75,6 +75,7 @@ tasks {
         from("src") {
             include("**/com/intellij/ide/ui/laf/**/*.properties")
             include("**/com/intellij/ide/ui/laf/**/*.css")
+            exclude("**/com/intellij/ide/ui/laf/intellijlaf*.css") // This is only a partial definition, the default definitions are overwritten and tags like the <center> tag do not work anymore
             include("**/com/intellij/ide/ui/laf/icons/**")
         }
         from("../platform-resources/src") {
