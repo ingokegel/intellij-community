@@ -7,3 +7,11 @@ dependencies {
     api(project(":indexing-api"))
     api(project(":core-ui"))
 }
+
+tasks {
+    named<Copy>("processResources") {
+        from("resources") {
+            include("messages/PlatformEditorBundle.properties")
+        }
+    }
+}

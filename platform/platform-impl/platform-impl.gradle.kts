@@ -1,10 +1,11 @@
+import util.includeIconList
 
 plugins {
     kotlin("jvm")
     idea
 }
 
-defaultTasks = mutableListOf("dist-all")
+val distDir: File by project
 
 dependencies {
     api(project(":platform-api"))
@@ -44,64 +45,40 @@ tasks {
 
     val jar by existing(Jar::class)
 
-    val dist by registering(Copy::class) {
+    register<Copy>("dist") {
         dependsOn(":prepareDist")
         from(configurations.runtimeClasspath.map { compile ->
             compile.filterNot { file ->
                 listOf(
-                        "annotations",
-                        "java5",
-                        "jython",
-                        "rhino",
-                        "batik",
-                        "xalan",
-                        "xmlgraphics",
-                        "intellij-deps-fastutil",
-                        "xml-apis",
-                        "jna",
-                        "kotlin",
-                        "jdom",
-                        "gson"
+                    "annotations",
+                    "java5",
+                    "jython",
+                    "rhino",
+                    "batik",
+                    "xalan",
+                    "xmlgraphics",
+                    "intellij-deps-fastutil",
+                    "xml-apis",
+                    "jna",
+                    "kotlin",
+                    "jdom",
+                    "gson"
                 ).any { file.name.contains(it) }
             }
         })
         from(jar)
-        into("$buildDir/dist")
-    }
-
-    register<Copy>("dist-all") {
-        dependsOn(dist, ":plugins:laf:macos:dist", ":plugins:laf:win10:dist")
+        into(distDir)
     }
 
     named<Copy>("processResources") {
         duplicatesStrategy = DuplicatesStrategy.FAIL
-        from("../../plugins/laf/macos/resources") {
-            include("icons/**")
-            exclude("icons/icon-robots.txt")
-        }
-        from("../../plugins/laf/macos/src") {
-            include("com/intellij/laf/macos/macintellijlaf.properties")
-        }
-        from("../../plugins/laf/win10/resources") {
-            include("icons/**")
-            exclude("icons/icon-robots.txt")
-        }
-        from("../../plugins/laf/win10/src") {
-            include("com/intellij/laf/win10/win10intellijlaf.properties")
-        }
-        from("../platform-api/resources") {
-            include("messages/IdeBundle.properties")
-        }
-        from("../editor-ui-api/resources") {
-            include("messages/PlatformEditorBundle.properties")
-        }
-        from("../platform-resources/src") {
-            include("themes/**")
-        }
         from("src") {
             include("**/com/intellij/ide/ui/laf/**/*.properties")
             include("**/com/intellij/ide/ui/laf/**/*.css")
             include("**/com/intellij/ide/ui/laf/icons/**")
+        }
+        from("../platform-resources/src") {
+            include("themes/**")
         }
         from("../icons/src") {
             include("icons/ide/*")
@@ -118,69 +95,65 @@ tasks {
         from("../icons/compatibilityResources") {
             include("mac/*")
             includeIconList("general/",
-                    "bullet",
-                    "configurableDefault",
-                    "defaultKeymap",
-                    "downloadPlugin",
-                    "errorsInProgress",
-                    "gearHover",
-                    "hideWarnings",
-                    "ijLogo",
-                    "jdk",
-                    "keyboardShortcut",
-                    "keymap",
-                    "macCorner",
-                    "mdot-empty",
-                    "mdot-white",
-                    "mdot",
-                    "mouseShortcut",
-                    "passwordLock",
-                    "pathVariables",
-                    "pluginManager",
-                    "progress",
-                    "searchEverywhereGear",
-                    "show_to_override",
-                    "tab",
-                    "settings",
-                    "projectStructure",
-                    "uninstallPlugin",
-                    "webSettings"
+                "bullet",
+                "configurableDefault",
+                "defaultKeymap",
+                "downloadPlugin",
+                "errorsInProgress",
+                "gearHover",
+                "hideWarnings",
+                "ijLogo",
+                "jdk",
+                "keyboardShortcut",
+                "keymap",
+                "macCorner",
+                "mdot-empty",
+                "mdot-white",
+                "mdot",
+                "mouseShortcut",
+                "passwordLock",
+                "pathVariables",
+                "pluginManager",
+                "progress",
+                "searchEverywhereGear",
+                "show_to_override",
+                "tab",
+                "settings",
+                "projectStructure",
+                "uninstallPlugin",
+                "webSettings"
             )
             includeIconList("actions/",
-                    "addFacesSupport",
-                    "allLeft",
-                    "allRight",
-                    "createPatch",
-                    "erDiagram",
-                    "fileStatus",
-                    "findWhite",
-                    "multicaret.svg",
-                    "quickList",
-                    "realIntentionOffBulb",
-                    "showViewer"
+                "addFacesSupport",
+                "allLeft",
+                "allRight",
+                "createPatch",
+                "erDiagram",
+                "fileStatus",
+                "findWhite",
+                "multicaret.svg",
+                "quickList",
+                "realIntentionOffBulb",
+                "showViewer"
             )
             includeIconList( "toolbarDecorator/",
-                    "analyze"
+                "analyze"
             )
             includeIconList( "nodes/",
-                    "disabledPointcut",
-                    "newException",
-                    "pluginUpdate",
-                    "pointcut",
-                    "ppWebLogo",
-                    "treeDownArrow",
-                    "treeRightArrow"
+                "disabledPointcut",
+                "newException",
+                "pluginUpdate",
+                "pointcut",
+                "ppWebLogo",
+                "treeDownArrow",
+                "treeRightArrow"
             )
             includeIconList( "fileTypes/",
-                    "facelets",
-                    "facesConfig",
-                    "typeScript"
+                "facelets",
+                "facesConfig",
+                "typeScript"
             )
         }
         includeEmptyDirs = false
     }
-}
-
-fun Copy.includeIconList(prefix: String, vararg names: String) {
-    include(names.map { "$prefix$it*" })
 }

@@ -2,6 +2,7 @@ package util
 
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginConvention
+import org.gradle.api.tasks.Copy
 import org.gradle.kotlin.dsl.get
 import org.gradle.kotlin.dsl.the
 import org.gradle.plugins.ide.idea.model.IdeaModel
@@ -68,3 +69,6 @@ private class FileTreeNode(val name: String, val children: MutableMap<String, Fi
     override fun toString() = name
 }
 
+fun Copy.includeIconList(prefix: String, vararg names: String) {
+    include(names.map { "$prefix$it*" })
+}

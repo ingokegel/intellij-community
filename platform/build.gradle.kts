@@ -9,11 +9,18 @@ plugins {
 }
 
 val rootBuildDir = mkdir("build")
+val distDir by extra(mkdir("$buildDir/dist"))
+
+defaultTasks = mutableListOf("dist-all")
 
 tasks {
     getByName<Wrapper>("wrapper") {
         gradleVersion = "6.7-rc-1"
         distributionType = Wrapper.DistributionType.ALL
+    }
+
+    register<Copy>("dist-all") {
+        dependsOn(":platform-impl:dist", ":plugins:laf:macos:dist", ":plugins:laf:win10:dist")
     }
 }
 

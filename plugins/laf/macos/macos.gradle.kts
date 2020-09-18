@@ -1,27 +1,34 @@
 plugins {
-  kotlin("jvm")
+    kotlin("jvm")
 }
 
+val distDir: File by project
+
 dependencies {
-  api(project(":platform-impl"))
+    api(project(":platform-impl"))
 }
 
 tasks {
-  named<Copy>("processResources") {
-    exclude("META-INF/**")
-  }
+    named<Copy>("processResources") {
+        from("resources") {
+            include("icons/**")
+            exclude("icons/icon-robots.txt")
+        }
+        from("src") {
+            include("com/intellij/laf/macos/macintellijlaf.properties")
+        }
+    }
 
-  register<Copy>("dist") {
-    dependsOn(":prepareDist")
-    from(jar)
-    into("${project(":platform-impl").buildDir}/dist")
-  }
+    register<Copy>("dist") {
+        from(jar)
+        into(distDir)
+    }
 }
 
 sourceSets.main {
-  java {
-    exclude(
+    java {
+        exclude(
             "com/intellij/laf/macos/MacIntelliJOptionButtonUI.kt"
-    )
-  }
+        )
+    }
 }
