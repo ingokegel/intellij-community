@@ -181,7 +181,7 @@ public final class MultiResolutionImageProvider {
       return jbIcon; // not convertable icon (e.g. with zero size)
     }
     Image newImage = convertFromJBImage(image);
-    if (newImage == image) {
+    if (newImage == null || newImage == image) {
       return jbIcon;
     }
     return new ImageIcon(newImage);
