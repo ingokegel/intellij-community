@@ -42,6 +42,7 @@ import com.intellij.ui.popup.OurHeavyWeightPopup;
 import com.intellij.ui.scale.JBUIScale;
 import com.intellij.util.EventDispatcher;
 import com.intellij.util.IJSwingUtilities;
+import com.intellij.util.IconUtil;
 import com.intellij.util.ObjectUtils;
 import com.intellij.util.concurrency.SynchronizedClearableLazy;
 import com.intellij.util.containers.ContainerUtil;
@@ -1042,7 +1043,7 @@ public final class LafManagerImpl extends LafManager implements PersistentStateC
     private static final BooleanSupplier dark = () -> ColorUtil.isDark(UIManager.getColor("MenuItem.selectionBackground"));
     private DefaultMenuArrowIcon() {
       super(AllIcons.Icons.Ide.NextStep,
-            dark.getAsBoolean() ? AllIcons.Icons.Ide.NextStepInverted : AllIcons.Icons.Ide.NextStep,
+              dark.getAsBoolean() ? IconUtil.brighter(AllIcons.Icons.Ide.NextStep, 8) : AllIcons.Icons.Ide.NextStepInverted,
             IconLoader.getDisabledIcon(AllIcons.Icons.Ide.NextStep));
     }
   }
