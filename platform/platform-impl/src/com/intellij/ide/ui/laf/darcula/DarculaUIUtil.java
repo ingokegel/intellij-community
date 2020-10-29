@@ -256,6 +256,9 @@ public final class DarculaUIUtil {
   }
 
   public static boolean isTableCellEditor(Component c) {
+    if (Boolean.TRUE.equals(((JComponent)c).getClientProperty("IntelliJ.isNotTableCellEditor"))) {
+      return false;
+    }
     return Boolean.TRUE.equals(((JComponent)c).getClientProperty("JComboBox.isTableCellEditor")) ||
            ComponentUtil.findParentByCondition(c, p -> p instanceof JBTableRowEditor) == null &&
            ComponentUtil.findParentByCondition(c, p -> p instanceof JTable) != null;
