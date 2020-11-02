@@ -20,7 +20,7 @@ tasks {
     }
 
     register<Copy>("dist-all") {
-        dependsOn(":platform-impl:dist", ":plugins:laf:macos:dist", ":plugins:laf:win10:dist")
+        dependsOn(":platform-impl:dist")
     }
 }
 
