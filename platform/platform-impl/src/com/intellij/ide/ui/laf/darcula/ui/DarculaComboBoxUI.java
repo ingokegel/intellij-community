@@ -150,9 +150,10 @@ public class DarculaComboBoxUI extends BasicComboBoxUI implements Border, ErrorB
           g2.translate(r.x, r.y);
 
           if (myPaintArrowButton) {
-            float bw = BW.getFloat();
-            float lw = LW.getFloat();
-            float arc = myArc;
+            boolean tableCellEditor = DarculaUIUtil.isTableCellEditor(comboBox);
+            float bw = tableCellEditor ? 0 : BW.getFloat();
+            float lw = tableCellEditor ? 0 : LW.getFloat();
+            float arc = tableCellEditor ? 0 : myArc;
             arc = arc > bw + lw ? arc - bw - lw : 0.0f;
 
             Path2D innerShape = new Path2D.Float();

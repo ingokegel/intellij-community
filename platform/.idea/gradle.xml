@@ -23,15 +23,11 @@
             <option value="$PROJECT_DIR$/object-serializer" />
             <option value="$PROJECT_DIR$/platform-api" />
             <option value="$PROJECT_DIR$/platform-impl" />
-            <option value="$PROJECT_DIR$/plugins" />
-            <option value="$PROJECT_DIR$/plugins/laf" />
             <option value="$PROJECT_DIR$/projectModel-api" />
             <option value="$PROJECT_DIR$/shim" />
             <option value="$PROJECT_DIR$/util" />
             <option value="$PROJECT_DIR$/util-class-loader" />
             <option value="$PROJECT_DIR$/util-rt" />
-            <option value="$PROJECT_DIR$/../plugins/laf/macos" />
-            <option value="$PROJECT_DIR$/../plugins/laf/win10" />
           </set>
         </option>
       </GradleProjectSettings>
