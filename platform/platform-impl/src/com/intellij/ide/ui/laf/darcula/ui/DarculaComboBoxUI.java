@@ -250,10 +250,11 @@ public class DarculaComboBoxUI extends BasicComboBoxUI implements Border, ErrorB
       g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
       g2.translate(r.x, r.y);
 
-      float bw = BW.getFloat();
+      boolean tableCellEditor = DarculaUIUtil.isTableCellEditor(comboBox);
+      float bw = tableCellEditor ? 0 : BW.getFloat();
 
       g2.setColor(getBackgroundColor());
-      g2.fill(getOuterShape(r, bw, myArc));
+      g2.fill(getOuterShape(r, bw, tableCellEditor ? 0 : myArc));
     }
     finally {
       g2.dispose();
@@ -270,6 +271,9 @@ public class DarculaComboBoxUI extends BasicComboBoxUI implements Border, ErrorB
     currentValuePane.removeAll();
   }
 
+  // See WelcomeScreenUIManager.getProjectsSelectionBackground/getProjectsSelectionForeground
+  public static final Color LIGHT_SELECTION_COLOR = JBColor.namedColor("Plugins.lightSelectionBackground", new JBColor(0xEDF6FE, 0x464A4D));
+
   private Color getBackgroundColor() {
     Color bg = comboBox.getBackground();
     if (comboBox.isEditable() && editor != null) {
@@ -279,9 +283,10 @@ public class DarculaComboBoxUI extends BasicComboBoxUI implements Border, ErrorB
     else {
       Object value = comboBox.getSelectedItem();
       Color coloredItemColor = value instanceof ColoredItem ? ((ColoredItem)value).getColor(): null;
+      Color nonEditableBackground = DarculaUIUtil.isTableCellEditor(comboBox) ? LIGHT_SELECTION_COLOR : NON_EDITABLE_BACKGROUND;
       return ObjectUtils.notNull(coloredItemColor,
               comboBox.isBackgroundSet() && !(bg instanceof UIResource) ? bg :
-              comboBox.isEnabled() ? NON_EDITABLE_BACKGROUND : UIUtil.getComboBoxDisabledBackground());
+              comboBox.isEnabled() ? nonEditableBackground : UIUtil.getComboBoxDisabledBackground());
     }
   }
 
