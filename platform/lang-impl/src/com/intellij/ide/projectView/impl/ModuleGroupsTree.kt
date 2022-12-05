@@ -50,15 +50,17 @@ internal class ModuleGroupsTree private constructor(private val grouper: ModuleG
 
   private fun addChildGroupsForNonContainedModuleGroups(module: Module) {
     val groupPath = grouper.getModuleAsGroupPath(module)
-    if (groupPath != null) {
+    if (groupPath != null && groupPath.contains("buildSrc")) {
       val moduleGroup = ModuleGroup(groupPath)
       if (childModules.containsKey(moduleGroup)) {
         val roots = ModuleRootManager.getInstance(module).contentRoots
-        for (childModule in childModules[moduleGroup]) {
-          val childRoots = ModuleRootManager.getInstance(childModule).contentRoots
-          if (childRoots.any { !isContainedInRoots(it, roots)}) {
-            addChildGroup(groupPath, null)
-            return
+        if (roots.isNotEmpty()) {
+          for (childModule in childModules[moduleGroup]) {
+            val childRoots = ModuleRootManager.getInstance(childModule).contentRoots
+            if (childRoots.any { !isContainedInRoots(it, roots) }) {
+              addChildGroup(groupPath, null)
+              return
+            }
           }
         }
       }
